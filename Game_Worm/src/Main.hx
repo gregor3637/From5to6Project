@@ -23,6 +23,8 @@ class Main extends Sprite {
 	
 	private var hero:VisibleStaticObject;
 	private var playerToGameCommunication:CommunicationControl;
+	
+	private var indicators:Indicators;
 		
 	public function new() {
 		super();
@@ -34,7 +36,7 @@ class Main extends Sprite {
 		
 		//var testArray:Array<Bool> = new Array<Bool>[true, false, false, true];
 		
-		var areTrue:Int = Validation.conditionTimesMet(true, [true, false, true, false, true]);
+		var areTrue:Int = Validation.conditionFrequency(true, [true, false, true, false, true]);
 		
 		trace(" areTrue = " + areTrue);
 		
@@ -51,6 +53,17 @@ class Main extends Sprite {
 		var background:VisibleStaticObject = new VisibleStaticObject("img/background/level1/Background_960x480.png");
 		addChild(background);
 		
+		
+		
+		indicators = new Indicators();
+		addChild(indicators);
+		indicators.x = stage.stageWidth - indicators.width * 1.2;
+		indicators.y = 0 + indicators.height * 1.2;
+		indicators.health.reset();
+		//indicators.health.update(2);
+		
+		
+		
 		typeControl = new CollectableTypeControl();
 		flowControl = new FlowControl();
 		this.addChild(flowControl);
@@ -62,6 +75,7 @@ class Main extends Sprite {
 	}
 	
 	private function onMoveChange(ev:MoveCommandEvent):Void {
+		indicators.health.update(2);
 		flowControl.moveHero(ev.movementType);
 	}
 	

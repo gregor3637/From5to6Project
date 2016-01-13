@@ -30,67 +30,71 @@ class ApplicationMain {
 		var types = [];
 		
 		
-		urls.push ("img/2dtoolkit.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
 		urls.push ("img/32.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/AC-DC-Logo-5-600x270.png");
+		urls.push ("img/background/level1/background.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/arR80xV_700b.jpg");
+		urls.push ("img/background/level1/Background_960x480.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/aVXLppO_460sv.mp4");
-		types.push (lime.Assets.AssetType.BINARY);
-		
-		
-		urls.push ("img/aWO9jDn_460sv.mp4");
-		types.push (lime.Assets.AssetType.BINARY);
-		
-		
-		urls.push ("img/Cell_Blue.png");
+		urls.push ("img/Collectables/collectable_Blue.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Cell_Green.png");
+		urls.push ("img/Collectables/collectable_Green.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Cell_Grey.png");
+		urls.push ("img/Collectables/collectable_Grey.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Cell_Move.png");
+		urls.push ("img/Collectables/collectable_Purple.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Cell_Purple.png");
+		urls.push ("img/Collectables/collectable_Red.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Cell_Red.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/Cell_Yellow.png");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/Grass.jpg");
-		types.push (lime.Assets.AssetType.IMAGE);
-		
-		
-		urls.push ("img/image.png");
+		urls.push ("img/Collectables/collectable_Yellow.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		urls.push ("img/kit_from_firefox.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/apple.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/burger.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/player/hero.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/player/wormanim.json");
+		types.push (lime.Assets.AssetType.TEXT);
+		
+		
+		urls.push ("img/player/wormanim.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/ProgressBar/Background.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/ProgressBar/HealthProgress.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -104,10 +108,6 @@ class ApplicationMain {
 		
 		urls.push ("img/SpriteSheetData.xml");
 		types.push (lime.Assets.AssetType.TEXT);
-		
-		
-		urls.push ("img/Voyager-records-631.jpg__800x600_q85_crop.jpg");
-		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
 		
@@ -170,7 +170,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "283",
+			build: "384",
 			company: "Mihail Mitov",
 			file: "GameWorm",
 			fps: 60,
@@ -194,7 +194,7 @@ class ApplicationMain {
 					stencilBuffer: true,
 					title: "Game_Worm",
 					vsync: false,
-					width: 800,
+					width: 960,
 					x: null,
 					y: null
 				},
@@ -212,7 +212,7 @@ class ApplicationMain {
 		
 		#if (js && html5)
 		#if (munit || utest)
-		openfl.Lib.embed (null, 800, 480, "000000");
+		openfl.Lib.embed (null, 960, 480, "000000");
 		#end
 		#else
 		create ();

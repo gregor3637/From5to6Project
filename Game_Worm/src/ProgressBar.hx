@@ -16,6 +16,7 @@ class ProgressBar extends Sprite{
 	@:isVar private var totalValue(get, set):Float;
 	@:isVar private var currentValue(get, set):Float;
 	
+	private var LEVEL_PROGRESSION:Float = 1.5;
 	
 	
 	private var bgImageData:BitmapData;
@@ -26,8 +27,10 @@ class ProgressBar extends Sprite{
 	private var progressImage:Bitmap;
 	private var progressPath:String;
 	
-	public function new() {
+	public function new(startValue:Float = 0, endValue:Float = 10, isOverlooping:Bool = false) {
 		super();
+		this.currentValue = startValue;
+		this.totalValue = endValue;
 		this.addEventListener(Event.ADDED_TO_STAGE, init);
 		
 		bgPath = "img/ProgressBar/Background.png";
@@ -39,36 +42,66 @@ class ProgressBar extends Sprite{
 		
 		bgImageData = Assets.getBitmapData(bgPath);
 		bgImage = new Bitmap(bgImageData);
-		this.addChild(image);
+		this.addChild(bgImage);
 		
-		progressPath = Assets.getBitmapData(progressPath);
-		progressPath = new Bitmap(progressPath);
-		this.addChild(progressPath);
+		progressImageData = Assets.getBitmapData(progressPath);
+		progressImage = new Bitmap(progressImageData);
+		this.addChild(progressImage);
+		
+		progressImage.scaleX = currentValue / totalValue;
 	}
 	
 	public function reset():Void {
 		currentValue = 0;
 	}
 	
-	public function update(value:Float = 0, exactValue:Bool = false, percentageOfCurrent:Bool = false, percentageOfFull:Bool = false):Void {
-		if ( 1 < Validation.conditionTimesMet(true, [exactValue, percentageOfCurrent, percentageOfFull]) {
-			throw new Error("Only one condition from [exactValue,percentageOfCurrent,percentageOfFull] is allowed to be 'true' !");
+	public function update(value:Float = 0, canOverlap:Bool = false, exactValue:Bool = false, percentageOfCurrentValue:Bool = false, percentageOfFullValue:Bool = false):Void {
+		if ( 1 < Validation.conditionFrequency(true, [exactValue, percentageOfCurrentValue, percentageOfFullValue])) {
+			//throw new Error("Only one condition from [exactValue,percentageOfCurrent,percentageOfFull] is allowed to be 'true' !");
+			//throw new Error("n");
 		}
 		
 		
 		//TODO: continue from here
 		
-		if (!exactValue) {
+		//this means it cant loop //hmmm or does it ? whem we have 99% of the bar progress and we get to this point 
+		if (!canOverlap) {
+			if (exactValue) {
+				currentValue = MathUtils.sumOfNumbersWithMaxAllowedValue(currentValue, value, totalValue);
+			}
 			
+			if (percentageOfCurrentValue) {
+				var valueToBeAdd:Float = MathUtils.roundToDecimal(currentValue / value, 2);
+				currentValue = MathUtils.sumOfNumbersWithMaxAllowedValue(currentValue, valueToBeAdd, totalValue);
+			}
+			
+			if (percentageOfFullValue) {
+				var valueToBeAdd:Float = MathUtils.roundToDecimal(totalValue / value, 2);
+				currentValue = MathUtils.sumOfNumbersWithMaxAllowedValue(currentValue, valueToBeAdd, totalValue);
+			}
 		}
 		
 		
-		var startFromBeggining:Int = -1;
 		
-		do {
-			currentValue += value;
-			++startFromBeggining;
-		} while (currentValue > totalValue)
+		else {
+			var overlapCount:Int = -1;
+			
+			do {
+				if (currentValue == totalValue) {
+					totalValue = currentValue * LEVEL_PROGRESSION;
+				}
+				currentValue += value;
+				++overlapCount;
+			} while (currentValue > totalValue);
+			
+			trace("ProgressBar | overlapCount = " + overlapCount);
+		}
+		
+		animateProgress();
+	}
+	
+	private function animateProgress() {
+		Actuate.tween(progressImage, 2, { scaleX: 1 } );
 	}
 	
 	function get_totalValue():Float {
@@ -84,6 +117,7 @@ class ProgressBar extends Sprite{
 	}
 	
 	function set_currentValue(value:Float):Float {
+		trace("ProgressBar | set_currentValue = " + value);
 		return currentValue = value;
 	}
 }

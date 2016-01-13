@@ -6,23 +6,28 @@ import openfl.events.Event;
  * ...
  * @author Mihail Mitov
  */
-class Indicators extends Sprite{
+class Indicators extends Sprite {
 	
-	private var health:ProgressBar;
+	@:isVar public var health(get, null):ProgressBar;
 	
 	public function new() {
+		super();
 		this.addEventListener(Event.ADDED_TO_STAGE, init);
 	}
 	
 	private function init(e:Event):Void {
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		
-		health = new ProgressBar();
+		health = new ProgressBar(0.5, 10);
 		this.addChild(health);
 	}
 	
 	public function changeHealth(value:Int = 0, exactValue:Bool = false, percentageOfCurrent:Bool = false, percentageOfFull:Bool = false):Void {
-		
+		health.update(value, false, exactValue, percentageOfCurrent, percentageOfFull);
+	}
+	
+	function get_health():ProgressBar {
+		return health;
 	}
 	
 }

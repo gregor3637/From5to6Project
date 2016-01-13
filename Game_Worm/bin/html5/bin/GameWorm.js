@@ -23,37 +23,39 @@ ApplicationMain.create = function() {
 	ApplicationMain.preloader.create(ApplicationMain.config);
 	var urls = [];
 	var types = [];
-	urls.push("img/2dtoolkit.png");
-	types.push("IMAGE");
 	urls.push("img/32.png");
 	types.push("IMAGE");
-	urls.push("img/AC-DC-Logo-5-600x270.png");
+	urls.push("img/background/level1/background.png");
 	types.push("IMAGE");
-	urls.push("img/arR80xV_700b.jpg");
+	urls.push("img/background/level1/Background_960x480.png");
 	types.push("IMAGE");
-	urls.push("img/aVXLppO_460sv.mp4");
-	types.push("BINARY");
-	urls.push("img/aWO9jDn_460sv.mp4");
-	types.push("BINARY");
-	urls.push("img/Cell_Blue.png");
+	urls.push("img/Collectables/collectable_Blue.png");
 	types.push("IMAGE");
-	urls.push("img/Cell_Green.png");
+	urls.push("img/Collectables/collectable_Green.png");
 	types.push("IMAGE");
-	urls.push("img/Cell_Grey.png");
+	urls.push("img/Collectables/collectable_Grey.png");
 	types.push("IMAGE");
-	urls.push("img/Cell_Move.png");
+	urls.push("img/Collectables/collectable_Purple.png");
 	types.push("IMAGE");
-	urls.push("img/Cell_Purple.png");
+	urls.push("img/Collectables/collectable_Red.png");
 	types.push("IMAGE");
-	urls.push("img/Cell_Red.png");
-	types.push("IMAGE");
-	urls.push("img/Cell_Yellow.png");
-	types.push("IMAGE");
-	urls.push("img/Grass.jpg");
-	types.push("IMAGE");
-	urls.push("img/image.png");
+	urls.push("img/Collectables/collectable_Yellow.png");
 	types.push("IMAGE");
 	urls.push("img/kit_from_firefox.png");
+	types.push("IMAGE");
+	urls.push("img/objects/apple.png");
+	types.push("IMAGE");
+	urls.push("img/objects/burger.png");
+	types.push("IMAGE");
+	urls.push("img/player/hero.png");
+	types.push("IMAGE");
+	urls.push("img/player/wormanim.json");
+	types.push("TEXT");
+	urls.push("img/player/wormanim.png");
+	types.push("IMAGE");
+	urls.push("img/ProgressBar/Background.png");
+	types.push("IMAGE");
+	urls.push("img/ProgressBar/HealthProgress.png");
 	types.push("IMAGE");
 	urls.push("img/set.png");
 	types.push("IMAGE");
@@ -61,8 +63,6 @@ ApplicationMain.create = function() {
 	types.push("IMAGE");
 	urls.push("img/SpriteSheetData.xml");
 	types.push("TEXT");
-	urls.push("img/Voyager-records-631.jpg__800x600_q85_crop.jpg");
-	types.push("IMAGE");
 	if(ApplicationMain.config.assetsPrefix != null) {
 		var _g1 = 0;
 		var _g = urls.length;
@@ -85,7 +85,7 @@ ApplicationMain.init = function() {
 	if(total == 0) ApplicationMain.start();
 };
 ApplicationMain.main = function() {
-	ApplicationMain.config = { build : "283", company : "Mihail Mitov", file : "GameWorm", fps : 60, name : "Game_Worm", orientation : "", packageName : "GameWorm", version : "1.0.0", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 480, parameters : "{}", resizable : true, stencilBuffer : true, title : "Game_Worm", vsync : false, width : 800, x : null, y : null}]};
+	ApplicationMain.config = { build : "384", company : "Mihail Mitov", file : "GameWorm", fps : 60, name : "Game_Worm", orientation : "", packageName : "GameWorm", version : "1.0.0", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : true, height : 480, parameters : "{}", resizable : true, stencilBuffer : true, title : "Game_Worm", vsync : false, width : 960, x : null, y : null}]};
 };
 ApplicationMain.start = function() {
 	var hasMain = false;
@@ -1203,12 +1203,9 @@ var Main = function() {
 	this.frameCounter = 0;
 	openfl_display_Sprite.call(this);
 	haxe_Log.trace("Main | started",{ fileName : "Main.hx", lineNumber : 29, className : "Main", methodName : "new"});
-	var str = "%";
-	haxe_Log.trace("Movement.LEFT = " + "left",{ fileName : "Main.hx", lineNumber : 32, className : "Main", methodName : "new"});
-	haxe_Log.trace("Movement.LEFT = " + str,{ fileName : "Main.hx", lineNumber : 33, className : "Main", methodName : "new"});
-	var isString = typeof("left") == "string";
-	haxe_Log.trace("isString = " + (isString == null?"null":"" + isString),{ fileName : "Main.hx", lineNumber : 35, className : "Main", methodName : "new"});
 	this.init();
+	var areTrue = Validation.conditionTimesMet(true,[true,false,true,false,true]);
+	haxe_Log.trace(" areTrue = " + areTrue,{ fileName : "Main.hx", lineNumber : 39, className : "Main", methodName : "new"});
 };
 $hxClasses["Main"] = Main;
 Main.__name__ = ["Main"];
@@ -1218,7 +1215,8 @@ Main.prototype = $extend(openfl_display_Sprite.prototype,{
 		this.playerToGameCommunication = new CommunicationControl();
 		this.addChild(this.playerToGameCommunication);
 		this.playerToGameCommunication.addEventListener("changed",$bind(this,this.onMoveChange));
-		var background = new VisibleStaticObject("img/Grass.jpg");
+		this.hero = new VisibleStaticObject("img/player/hero.png");
+		var background = new VisibleStaticObject("img/background/level1/Background_960x480.png");
 		this.addChild(background);
 		this.typeControl = new CollectableTypeControl();
 		this.flowControl = new FlowControl();
@@ -1227,10 +1225,11 @@ Main.prototype = $extend(openfl_display_Sprite.prototype,{
 		this.addEventListener(openfl_events_Event.ENTER_FRAME,$bind(this,this.onFrame));
 		this.startGame();
 	}
-	,onMoveChange: function(e) {
-		haxe_Log.trace("it is working",{ fileName : "Main.hx", lineNumber : 60, className : "Main", methodName : "onMoveChange"});
+	,onMoveChange: function(ev) {
+		this.flowControl.moveHero(ev.movementType);
 	}
 	,startGame: function() {
+		this.flowControl.addHero(this.hero);
 		this.requestNewItem();
 	}
 	,requestNewItem: function(e) {
@@ -1320,60 +1319,40 @@ CollectableInfoVO.prototype = {
 	,__properties__: {set_pathToSource:"set_pathToSource",get_pathToSource:"get_pathToSource",set_isHealthy:"set_isHealthy",get_isHealthy:"get_isHealthy"}
 };
 var CollectableTypeControl = function() {
-	this.once = true;
-	this.goodCount = 0;
-	this.badCount = 0;
+	this.currentIndex = -1;
+	this.get_effectSequence();
 };
 $hxClasses["CollectableTypeControl"] = CollectableTypeControl;
 CollectableTypeControl.__name__ = ["CollectableTypeControl"];
 CollectableTypeControl.prototype = {
 	getType: function() {
-		if(this.once) {
-			this.once = false;
-			this.get_sequence();
-		}
-		var obj = Types.BAD_COLLECTABLES[0];
-		return new CollectableInfoVO(obj.isHealthy,obj.pathToImage);
+		if(++this.currentIndex >= 100) this.currentIndex = 0;
+		var effect = this.get_effectSequence()[this.currentIndex];
+		var objectsCollection = Types.ALL_COLLECTABLES[effect[1]];
+		var objectIndex = MathUtils.randomIntegerWithinRange(0,objectsCollection.length - 1);
+		var object = objectsCollection[objectIndex];
+		var cvo = new CollectableInfoVO(object.isHealthy,object.pathToImage);
+		return cvo;
 	}
-	,mostAppropriateChoice: function() {
-		var value;
-		var arr = [];
-		if(this.goodCount > this.badCount) value = this.choice(false); else if(this.goodCount < this.badCount) value = this.choice(true); else {
-			var willBeHealthy = Math.random() > 0.5;
-			value = this.choice(willBeHealthy);
-		}
-		return value;
-	}
-	,choice: function(isGood) {
-		var collectableIndex;
-		var choiceOptions;
-		if(isGood) {
-			++this.goodCount;
-			collectableIndex = MathUtils.randomIntegerWithinRange(0,Types.GOOD_COLLECTABLES.length - 1);
-			choiceOptions = Types.GOOD_COLLECTABLES;
-		} else {
-			++this.badCount;
-			collectableIndex = MathUtils.randomIntegerWithinRange(0,Types.BAD_COLLECTABLES.length - 1);
-			choiceOptions = Types.BAD_COLLECTABLES;
-		}
-		return choiceOptions[collectableIndex];
-	}
-	,get_sequence: function() {
-		if(this.sequence.length == 0) {
-			var bonusPercentage = Math.ceil(1.);
+	,get_effectSequence: function() {
+		if(this.effectSequence == null) {
+			this.effectSequence = [];
+			var bonusPercentage = 1.;
+			var neutralPercentage = 1500 / (100 - bonusPercentage);
 			var _g = 0;
 			while(_g < 100) {
 				var a = _g++;
-				if(MathUtils.randomIntegerWithinRange(0,100) > bonusPercentage) {
-					if(Math.random() >= 0.5) this.sequence[a] = -1; else this.sequence[a] = 1;
-				} else this.sequence[a] = 0;
+				var rand = Math.random() * 100;
+				var value;
+				if(rand <= bonusPercentage) value = Effect.Bonus; else if(rand <= neutralPercentage) value = Effect.Neutral; else if(Math.random() > 0.5) value = Effect.Positive; else value = Effect.Negative;
+				this.effectSequence[a] = value;
 			}
-			haxe_Log.trace("sequence = " + Std.string(this.sequence),{ fileName : "CollectableTypeControl.hx", lineNumber : 75, className : "CollectableTypeControl", methodName : "get_sequence"});
+			haxe_Log.trace(this.effectSequence,{ fileName : "CollectableTypeControl.hx", lineNumber : 64, className : "CollectableTypeControl", methodName : "get_effectSequence"});
 		}
-		return this.sequence;
+		return this.effectSequence;
 	}
 	,__class__: CollectableTypeControl
-	,__properties__: {get_sequence:"get_sequence"}
+	,__properties__: {get_effectSequence:"get_effectSequence"}
 };
 var CommunicationControl = function() {
 	openfl_display_Sprite.call(this);
@@ -1391,7 +1370,7 @@ CommunicationControl.prototype = $extend(openfl_display_Sprite.prototype,{
 	,keyUp: function(e) {
 	}
 	,keyDown: function(ev) {
-		haxe_Log.trace("key down",{ fileName : "CommunicationControl.hx", lineNumber : 30, className : "CommunicationControl", methodName : "keyDown"});
+		haxe_Log.trace("some key is pressed down",{ fileName : "CommunicationControl.hx", lineNumber : 30, className : "CommunicationControl", methodName : "keyDown"});
 		var move;
 		var _g = ev.keyCode;
 		switch(_g) {
@@ -1401,9 +1380,15 @@ CommunicationControl.prototype = $extend(openfl_display_Sprite.prototype,{
 		case 39:
 			move = "right";
 			break;
+		case 38:
+			move = "up";
+			break;
+		case 40:
+			move = "down";
+			break;
 		default:
 			move = "the move is missing";
-			haxe_Log.trace("No move corresponds to button: " + String.fromCharCode(ev.keyCode),{ fileName : "CommunicationControl.hx", lineNumber : 38, className : "CommunicationControl", methodName : "keyDown"});
+			haxe_Log.trace("No move corresponds to button: " + String.fromCharCode(ev.keyCode) + " | ev.keyCode = " + ev.keyCode,{ fileName : "CommunicationControl.hx", lineNumber : 40, className : "CommunicationControl", methodName : "keyDown"});
 		}
 		this.dispatchEvent(new MoveCommandEvent("changed",move));
 	}
@@ -1490,52 +1475,55 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe_ds_StringMap();
 	lime_AssetLibrary.call(this);
 	var id;
-	id = "img/2dtoolkit.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
 	id = "img/32.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/AC-DC-Logo-5-600x270.png";
+	id = "img/background/level1/background.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/arR80xV_700b.jpg";
+	id = "img/background/level1/Background_960x480.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/aVXLppO_460sv.mp4";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "img/aWO9jDn_460sv.mp4";
-	this.path.set(id,id);
-	this.type.set(id,"BINARY");
-	id = "img/Cell_Blue.png";
+	id = "img/Collectables/collectable_Blue.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/Cell_Green.png";
+	id = "img/Collectables/collectable_Green.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/Cell_Grey.png";
+	id = "img/Collectables/collectable_Grey.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/Cell_Move.png";
+	id = "img/Collectables/collectable_Purple.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/Cell_Purple.png";
+	id = "img/Collectables/collectable_Red.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
-	id = "img/Cell_Red.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/Cell_Yellow.png";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/Grass.jpg";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
-	id = "img/image.png";
+	id = "img/Collectables/collectable_Yellow.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/kit_from_firefox.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/objects/apple.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/objects/burger.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/player/hero.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/player/wormanim.json";
+	this.path.set(id,id);
+	this.type.set(id,"TEXT");
+	id = "img/player/wormanim.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/ProgressBar/Background.png";
+	this.path.set(id,id);
+	this.type.set(id,"IMAGE");
+	id = "img/ProgressBar/HealthProgress.png";
 	this.path.set(id,id);
 	this.type.set(id,"IMAGE");
 	id = "img/set.png";
@@ -1547,9 +1535,6 @@ var DefaultAssetLibrary = function() {
 	id = "img/SpriteSheetData.xml";
 	this.path.set(id,id);
 	this.type.set(id,"TEXT");
-	id = "img/Voyager-records-631.jpg__800x600_q85_crop.jpg";
-	this.path.set(id,id);
-	this.type.set(id,"IMAGE");
 	var assetsPrefix = null;
 	if(ApplicationMain.config != null && Object.prototype.hasOwnProperty.call(ApplicationMain.config,"assetsPrefix")) assetsPrefix = ApplicationMain.config.assetsPrefix;
 	if(assetsPrefix != null) {
@@ -1729,7 +1714,7 @@ Effect.Bonus = ["Bonus",3];
 Effect.Bonus.toString = $estr;
 Effect.Bonus.__enum__ = Effect;
 var FlowControl = function() {
-	this.TICKS_FOR_NEW_OBJECTS = 50;
+	this.TICKS_FOR_NEW_ELEMENT = 50;
 	openfl_display_Sprite.call(this);
 	this.addEventListener(openfl_events_Event.ADDED_TO_STAGE,$bind(this,this.init));
 };
@@ -1743,10 +1728,39 @@ FlowControl.prototype = $extend(openfl_display_Sprite.prototype,{
 		this.playfieldHeight = this.parent.stage.stageHeight;
 		this.fallingObjects = [];
 	}
-	,addNewElements: function(newElement) {
-		this.fallingObjects.push(newElement);
-		newElement.set_x(this.nextPosition(Math.floor(newElement.get_width())));
-		this.addChild(newElement);
+	,addHero: function(obj) {
+		this.hero = obj;
+		this.addChild(this.hero);
+		this.hero.set_x(this.playfieldWidth * 0.5 - this.hero.get_width() * 0.5);
+		this.hero.set_y(this.playfieldHeight - this.hero.get_height());
+	}
+	,moveHero: function(direction) {
+		switch(direction) {
+		case "left":
+			var _g = this.hero;
+			_g.set_x(_g.get_x() - 5);
+			break;
+		case "right":
+			var _g1 = this.hero;
+			_g1.set_x(_g1.get_x() + 5);
+			break;
+		case "down":
+			var _g2 = this.hero;
+			_g2.set_y(_g2.get_y() + 5);
+			break;
+		case "up":
+			var _g3 = this.hero;
+			_g3.set_y(_g3.get_y() - 5);
+			break;
+		case "the move is missing":
+			haxe_Log.trace("You cant move with that key",{ fileName : "FlowControl.hx", lineNumber : 51, className : "FlowControl", methodName : "moveHero"});
+			break;
+		}
+	}
+	,addNewElements: function(element) {
+		this.fallingObjects.push(element);
+		element.set_x(this.nextPosition(Math.floor(element.get_width())));
+		this.addChild(element);
 	}
 	,nextPosition: function(elementWidth) {
 		var position;
@@ -1768,31 +1782,45 @@ FlowControl.prototype = $extend(openfl_display_Sprite.prototype,{
 	}
 	,update: function() {
 		++this.ticks;
-		if(this.ticks % this.TICKS_FOR_NEW_OBJECTS == 0) this.dispatchEvent(new openfl_events_Event("objectDestroyed"));
-		this.checkIfObjectsOutOfRange();
+		if(this.ticks % this.TICKS_FOR_NEW_ELEMENT == 0) this.dispatchEvent(new openfl_events_Event("objectDestroyed"));
+		this.checkCollision();
+		this.checkIfElementOutOfRange();
 		this.makeObjectsFallDown();
 	}
-	,checkIfObjectsOutOfRange: function() {
+	,checkCollision: function() {
 		var _g1 = 0;
 		var _g = this.fallingObjects.length;
 		while(_g1 < _g) {
 			var a = _g1++;
-			var obj = this.fallingObjects[a];
-			if(obj.get_y() > this.playfieldHeight - obj.get_height() * 2) {
-				var indexInArr = HxOverrides.indexOf(this.fallingObjects,obj,0);
-				this.fallingObjects.splice(indexInArr,1);
-				this.removeChild(obj);
-				obj = null;
-				this.dispatchEvent(new openfl_events_Event("objectDestroyed"));
+			var element = this.fallingObjects[a];
+			if(this.hero.hitTestObject(element)) {
+				haxe_Log.trace("HIT HIT HIT ",{ fileName : "FlowControl.hx", lineNumber : 106, className : "FlowControl", methodName : "checkCollision"});
+				this.disposeElement(element);
 			}
+		}
+	}
+	,disposeElement: function(element) {
+		var indexInArr = HxOverrides.indexOf(this.fallingObjects,element,0);
+		this.fallingObjects.splice(indexInArr,1);
+		this.removeChild(element);
+		element = null;
+		this.dispatchEvent(new openfl_events_Event("objectDestroyed"));
+	}
+	,checkIfElementOutOfRange: function() {
+		var _g1 = 0;
+		var _g = this.fallingObjects.length;
+		while(_g1 < _g) {
+			var a = _g1++;
+			var element = this.fallingObjects[a];
+			if(element.get_y() > this.playfieldHeight - element.get_height()) this.disposeElement(element);
 		}
 	}
 	,makeObjectsFallDown: function() {
 		var _g1 = 0;
 		var _g = this.fallingObjects.length;
 		while(_g1 < _g) {
-			var obj = _g1++;
-			var _g2 = this.fallingObjects[obj];
+			var a = _g1++;
+			var _g2 = this.fallingObjects[a];
 			_g2.set_y(_g2.get_y() + 2);
 		}
 	}
@@ -1843,6 +1871,15 @@ HxOverrides.iter = function(a) {
 var Lambda = function() { };
 $hxClasses["Lambda"] = Lambda;
 Lambda.__name__ = ["Lambda"];
+Lambda.filter = function(it,f) {
+	var l = new List();
+	var $it0 = $iterator(it)();
+	while( $it0.hasNext() ) {
+		var x = $it0.next();
+		if(f(x)) l.add(x);
+	}
+	return l;
+};
 Lambda.count = function(it,pred) {
 	var n = 0;
 	if(pred == null) {
@@ -1977,7 +2014,7 @@ NMEPreloader.prototype = $extend(openfl_display_Sprite.prototype,{
 		if(height > 0) return height; else return openfl_Lib.current.stage.stageHeight;
 	}
 	,getWidth: function() {
-		var width = 800;
+		var width = 960;
 		if(width > 0) return width; else return openfl_Lib.current.stage.stageWidth;
 	}
 	,onInit: function() {
@@ -2209,6 +2246,14 @@ _$UInt_UInt_$Impl_$.gt = function(a,b) {
 _$UInt_UInt_$Impl_$.toFloat = function(this1) {
 	var $int = this1;
 	if($int < 0) return 4294967296.0 + $int; else return $int + 0.0;
+};
+var Validation = function() { };
+$hxClasses["Validation"] = Validation;
+Validation.__name__ = ["Validation"];
+Validation.conditionTimesMet = function(condition,elements) {
+	return Lambda.filter(elements,function(n) {
+		return n == condition;
+	}).length;
 };
 var haxe_StackItem = $hxClasses["haxe.StackItem"] = { __ename__ : true, __constructs__ : ["CFunction","Module","FilePos","Method","LocalFunction"] };
 haxe_StackItem.CFunction = ["CFunction",0];
@@ -34708,7 +34753,8 @@ openfl_display_DisplayObject.__worldTransformDirty = 0;
 Collectable.DESTROYED = "destroyed";
 CollectableTypeControl.TOTAL_ELEMENTS = 100;
 CollectableTypeControl.BONUS_FREQUENCY = 1;
-FlowControl.OBJECT_DESTROYED = "objectDestroyed";
+CollectableTypeControl.NEUTRAL_FREQUENCY = 15;
+FlowControl.ELEMENT_DESTROYED = "objectDestroyed";
 openfl_events_Event.ACTIVATE = "activate";
 openfl_events_Event.ADDED = "added";
 openfl_events_Event.ADDED_TO_STAGE = "addedToStage";
@@ -34736,14 +34782,22 @@ openfl_events_Event.TAB_ENABLED_CHANGE = "tabEnabledChange";
 openfl_events_Event.TAB_INDEX_CHANGE = "tabIndexChange";
 openfl_events_Event.UNLOAD = "unload";
 MoveCommandEvent.CHANGED = "changed";
-Types.APPLE = { isHealthy : Effect.Positive, pathToImage : "img/Cell_Blue.png"};
-Types.GRAPES = { isHealthy : Effect.Positive, pathToImage : "img/Cell_Purple.png"};
-Types.KIWI = { isHealthy : Effect.Positive, pathToImage : "img/Cell_Green.png"};
-Types.SANDWICH = { isHealthy : Effect.Negative, pathToImage : "img/Cell_Grey.png"};
-Types.ALCOHOL = { isHealthy : Effect.Negative, pathToImage : "img/Cell_Yellow.png"};
-Types.MEAT = { isHealthy : Effect.Negative, pathToImage : "img/Cell_Red.png"};
+Types.APPLE = { isHealthy : Effect.Positive, pathToImage : "img/Collectables/collectable_Blue.png"};
+Types.GRAPES = { isHealthy : Effect.Positive, pathToImage : "img/Collectables/collectable_Purple.png"};
+Types.KIWI = { isHealthy : Effect.Positive, pathToImage : "img/Collectables/collectable_Green.png"};
+Types.SANDWICH = { isHealthy : Effect.Negative, pathToImage : "img/Collectables/collectable_Yellow.png"};
+Types.ALCOHOL = { isHealthy : Effect.Negative, pathToImage : "img/Collectables/collectable_Grey.png"};
+Types.MEAT = { isHealthy : Effect.Negative, pathToImage : "img/Collectables/collectable_Red.png"};
+Types.STAR = { isHealthy : Effect.Bonus, pathToImage : "img/Collectables/collectable_Red.png"};
+Types.MAGNET = { isHealthy : Effect.Bonus, pathToImage : "img/Collectables/collectable_Red.png"};
+Types.BOMB = { isHealthy : Effect.Bonus, pathToImage : "img/Collectables/collectable_Red.png"};
+Types.SNOW = { isHealthy : Effect.Neutral, pathToImage : "img/Collectables/collectable_Red.png"};
+Types.RAIN = { isHealthy : Effect.Neutral, pathToImage : "img/Collectables/collectable_Red.png"};
 Types.GOOD_COLLECTABLES = [Types.APPLE,Types.GRAPES,Types.KIWI];
 Types.BAD_COLLECTABLES = [Types.SANDWICH,Types.ALCOHOL,Types.MEAT];
+Types.BONUS_COLLECTABLES = [Types.STAR,Types.MAGNET,Types.BOMB];
+Types.NEUTRAL_COLLECTABLES = [Types.SNOW,Types.RAIN];
+Types.ALL_COLLECTABLES = [Types.GOOD_COLLECTABLES,Types.BAD_COLLECTABLES,Types.NEUTRAL_COLLECTABLES,Types.BONUS_COLLECTABLES];
 haxe_ds_ObjectMap.count = 0;
 haxe_io_FPHelper.i64tmp = (function($this) {
 	var $r;

@@ -77,112 +77,116 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		#if flash
 		
-		className.set ("img/2dtoolkit.png", __ASSET__img_2dtoolkit_png);
-		type.set ("img/2dtoolkit.png", AssetType.IMAGE);
 		className.set ("img/32.png", __ASSET__img_32_png);
 		type.set ("img/32.png", AssetType.IMAGE);
-		className.set ("img/AC-DC-Logo-5-600x270.png", __ASSET__img_ac_dc_logo_5_600x270_png);
-		type.set ("img/AC-DC-Logo-5-600x270.png", AssetType.IMAGE);
-		className.set ("img/arR80xV_700b.jpg", __ASSET__img_arr80xv_700b_jpg);
-		type.set ("img/arR80xV_700b.jpg", AssetType.IMAGE);
-		className.set ("img/aVXLppO_460sv.mp4", __ASSET__img_avxlppo_460sv_mp4);
-		type.set ("img/aVXLppO_460sv.mp4", AssetType.BINARY);
-		className.set ("img/aWO9jDn_460sv.mp4", __ASSET__img_awo9jdn_460sv_mp4);
-		type.set ("img/aWO9jDn_460sv.mp4", AssetType.BINARY);
-		className.set ("img/Cell_Blue.png", __ASSET__img_cell_blue_png);
-		type.set ("img/Cell_Blue.png", AssetType.IMAGE);
-		className.set ("img/Cell_Green.png", __ASSET__img_cell_green_png);
-		type.set ("img/Cell_Green.png", AssetType.IMAGE);
-		className.set ("img/Cell_Grey.png", __ASSET__img_cell_grey_png);
-		type.set ("img/Cell_Grey.png", AssetType.IMAGE);
-		className.set ("img/Cell_Move.png", __ASSET__img_cell_move_png);
-		type.set ("img/Cell_Move.png", AssetType.IMAGE);
-		className.set ("img/Cell_Purple.png", __ASSET__img_cell_purple_png);
-		type.set ("img/Cell_Purple.png", AssetType.IMAGE);
-		className.set ("img/Cell_Red.png", __ASSET__img_cell_red_png);
-		type.set ("img/Cell_Red.png", AssetType.IMAGE);
-		className.set ("img/Cell_Yellow.png", __ASSET__img_cell_yellow_png);
-		type.set ("img/Cell_Yellow.png", AssetType.IMAGE);
-		className.set ("img/Grass.jpg", __ASSET__img_grass_jpg);
-		type.set ("img/Grass.jpg", AssetType.IMAGE);
-		className.set ("img/image.png", __ASSET__img_image_png);
-		type.set ("img/image.png", AssetType.IMAGE);
+		className.set ("img/background/level1/background.png", __ASSET__img_background_level1_background_png);
+		type.set ("img/background/level1/background.png", AssetType.IMAGE);
+		className.set ("img/background/level1/Background_960x480.png", __ASSET__img_background_level1_background_960x480_png);
+		type.set ("img/background/level1/Background_960x480.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Blue.png", __ASSET__img_collectables_collectable_blue_png);
+		type.set ("img/Collectables/collectable_Blue.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Green.png", __ASSET__img_collectables_collectable_green_png);
+		type.set ("img/Collectables/collectable_Green.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Grey.png", __ASSET__img_collectables_collectable_grey_png);
+		type.set ("img/Collectables/collectable_Grey.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Purple.png", __ASSET__img_collectables_collectable_purple_png);
+		type.set ("img/Collectables/collectable_Purple.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Red.png", __ASSET__img_collectables_collectable_red_png);
+		type.set ("img/Collectables/collectable_Red.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Yellow.png", __ASSET__img_collectables_collectable_yellow_png);
+		type.set ("img/Collectables/collectable_Yellow.png", AssetType.IMAGE);
 		className.set ("img/kit_from_firefox.png", __ASSET__img_kit_from_firefox_png);
 		type.set ("img/kit_from_firefox.png", AssetType.IMAGE);
+		className.set ("img/objects/apple.png", __ASSET__img_objects_apple_png);
+		type.set ("img/objects/apple.png", AssetType.IMAGE);
+		className.set ("img/objects/burger.png", __ASSET__img_objects_burger_png);
+		type.set ("img/objects/burger.png", AssetType.IMAGE);
+		className.set ("img/player/hero.png", __ASSET__img_player_hero_png);
+		type.set ("img/player/hero.png", AssetType.IMAGE);
+		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
+		type.set ("img/player/wormanim.json", AssetType.TEXT);
+		className.set ("img/player/wormanim.png", __ASSET__img_player_wormanim_png);
+		type.set ("img/player/wormanim.png", AssetType.IMAGE);
+		className.set ("img/ProgressBar/Background.png", __ASSET__img_progressbar_background_png);
+		type.set ("img/ProgressBar/Background.png", AssetType.IMAGE);
+		className.set ("img/ProgressBar/HealthProgress.png", __ASSET__img_progressbar_healthprogress_png);
+		type.set ("img/ProgressBar/HealthProgress.png", AssetType.IMAGE);
 		className.set ("img/set.png", __ASSET__img_set_png);
 		type.set ("img/set.png", AssetType.IMAGE);
 		className.set ("img/SpriteSheetData.png", __ASSET__img_spritesheetdata_png);
 		type.set ("img/SpriteSheetData.png", AssetType.IMAGE);
 		className.set ("img/SpriteSheetData.xml", __ASSET__img_spritesheetdata_xml);
 		type.set ("img/SpriteSheetData.xml", AssetType.TEXT);
-		className.set ("img/Voyager-records-631.jpg__800x600_q85_crop.jpg", __ASSET__img_voyager_records_631_jpg__800x600_q85_crop_jpg);
-		type.set ("img/Voyager-records-631.jpg__800x600_q85_crop.jpg", AssetType.IMAGE);
 		
 		
 		#elseif html5
 		
 		var id;
-		id = "img/2dtoolkit.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
 		id = "img/32.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/AC-DC-Logo-5-600x270.png";
+		id = "img/background/level1/background.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/arR80xV_700b.jpg";
+		id = "img/background/level1/Background_960x480.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/aVXLppO_460sv.mp4";
-		path.set (id, id);
-		
-		type.set (id, AssetType.BINARY);
-		id = "img/aWO9jDn_460sv.mp4";
-		path.set (id, id);
-		
-		type.set (id, AssetType.BINARY);
-		id = "img/Cell_Blue.png";
+		id = "img/Collectables/collectable_Blue.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Cell_Green.png";
+		id = "img/Collectables/collectable_Green.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Cell_Grey.png";
+		id = "img/Collectables/collectable_Grey.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Cell_Move.png";
+		id = "img/Collectables/collectable_Purple.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Cell_Purple.png";
+		id = "img/Collectables/collectable_Red.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Cell_Red.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "img/Cell_Yellow.png";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "img/Grass.jpg";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
-		id = "img/image.png";
+		id = "img/Collectables/collectable_Yellow.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
 		id = "img/kit_from_firefox.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/objects/apple.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/objects/burger.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/player/hero.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/player/wormanim.json";
+		path.set (id, id);
+		
+		type.set (id, AssetType.TEXT);
+		id = "img/player/wormanim.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/ProgressBar/Background.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/ProgressBar/HealthProgress.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -198,10 +202,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
-		id = "img/Voyager-records-631.jpg__800x600_q85_crop.jpg";
-		path.set (id, id);
-		
-		type.set (id, AssetType.IMAGE);
 		
 		
 		var assetsPrefix = null;
@@ -220,53 +220,56 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		var useManifest = false;
 		
-		className.set ("img/2dtoolkit.png", __ASSET__img_2dtoolkit_png);
-		type.set ("img/2dtoolkit.png", AssetType.IMAGE);
-		
 		className.set ("img/32.png", __ASSET__img_32_png);
 		type.set ("img/32.png", AssetType.IMAGE);
 		
-		className.set ("img/AC-DC-Logo-5-600x270.png", __ASSET__img_ac_dc_logo_5_600x270_png);
-		type.set ("img/AC-DC-Logo-5-600x270.png", AssetType.IMAGE);
+		className.set ("img/background/level1/background.png", __ASSET__img_background_level1_background_png);
+		type.set ("img/background/level1/background.png", AssetType.IMAGE);
 		
-		className.set ("img/arR80xV_700b.jpg", __ASSET__img_arr80xv_700b_jpg);
-		type.set ("img/arR80xV_700b.jpg", AssetType.IMAGE);
+		className.set ("img/background/level1/Background_960x480.png", __ASSET__img_background_level1_background_960x480_png);
+		type.set ("img/background/level1/Background_960x480.png", AssetType.IMAGE);
 		
-		className.set ("img/aVXLppO_460sv.mp4", __ASSET__img_avxlppo_460sv_mp4);
-		type.set ("img/aVXLppO_460sv.mp4", AssetType.BINARY);
+		className.set ("img/Collectables/collectable_Blue.png", __ASSET__img_collectables_collectable_blue_png);
+		type.set ("img/Collectables/collectable_Blue.png", AssetType.IMAGE);
 		
-		className.set ("img/aWO9jDn_460sv.mp4", __ASSET__img_awo9jdn_460sv_mp4);
-		type.set ("img/aWO9jDn_460sv.mp4", AssetType.BINARY);
+		className.set ("img/Collectables/collectable_Green.png", __ASSET__img_collectables_collectable_green_png);
+		type.set ("img/Collectables/collectable_Green.png", AssetType.IMAGE);
 		
-		className.set ("img/Cell_Blue.png", __ASSET__img_cell_blue_png);
-		type.set ("img/Cell_Blue.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Grey.png", __ASSET__img_collectables_collectable_grey_png);
+		type.set ("img/Collectables/collectable_Grey.png", AssetType.IMAGE);
 		
-		className.set ("img/Cell_Green.png", __ASSET__img_cell_green_png);
-		type.set ("img/Cell_Green.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Purple.png", __ASSET__img_collectables_collectable_purple_png);
+		type.set ("img/Collectables/collectable_Purple.png", AssetType.IMAGE);
 		
-		className.set ("img/Cell_Grey.png", __ASSET__img_cell_grey_png);
-		type.set ("img/Cell_Grey.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Red.png", __ASSET__img_collectables_collectable_red_png);
+		type.set ("img/Collectables/collectable_Red.png", AssetType.IMAGE);
 		
-		className.set ("img/Cell_Move.png", __ASSET__img_cell_move_png);
-		type.set ("img/Cell_Move.png", AssetType.IMAGE);
-		
-		className.set ("img/Cell_Purple.png", __ASSET__img_cell_purple_png);
-		type.set ("img/Cell_Purple.png", AssetType.IMAGE);
-		
-		className.set ("img/Cell_Red.png", __ASSET__img_cell_red_png);
-		type.set ("img/Cell_Red.png", AssetType.IMAGE);
-		
-		className.set ("img/Cell_Yellow.png", __ASSET__img_cell_yellow_png);
-		type.set ("img/Cell_Yellow.png", AssetType.IMAGE);
-		
-		className.set ("img/Grass.jpg", __ASSET__img_grass_jpg);
-		type.set ("img/Grass.jpg", AssetType.IMAGE);
-		
-		className.set ("img/image.png", __ASSET__img_image_png);
-		type.set ("img/image.png", AssetType.IMAGE);
+		className.set ("img/Collectables/collectable_Yellow.png", __ASSET__img_collectables_collectable_yellow_png);
+		type.set ("img/Collectables/collectable_Yellow.png", AssetType.IMAGE);
 		
 		className.set ("img/kit_from_firefox.png", __ASSET__img_kit_from_firefox_png);
 		type.set ("img/kit_from_firefox.png", AssetType.IMAGE);
+		
+		className.set ("img/objects/apple.png", __ASSET__img_objects_apple_png);
+		type.set ("img/objects/apple.png", AssetType.IMAGE);
+		
+		className.set ("img/objects/burger.png", __ASSET__img_objects_burger_png);
+		type.set ("img/objects/burger.png", AssetType.IMAGE);
+		
+		className.set ("img/player/hero.png", __ASSET__img_player_hero_png);
+		type.set ("img/player/hero.png", AssetType.IMAGE);
+		
+		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
+		type.set ("img/player/wormanim.json", AssetType.TEXT);
+		
+		className.set ("img/player/wormanim.png", __ASSET__img_player_wormanim_png);
+		type.set ("img/player/wormanim.png", AssetType.IMAGE);
+		
+		className.set ("img/ProgressBar/Background.png", __ASSET__img_progressbar_background_png);
+		type.set ("img/ProgressBar/Background.png", AssetType.IMAGE);
+		
+		className.set ("img/ProgressBar/HealthProgress.png", __ASSET__img_progressbar_healthprogress_png);
+		type.set ("img/ProgressBar/HealthProgress.png", AssetType.IMAGE);
 		
 		className.set ("img/set.png", __ASSET__img_set_png);
 		type.set ("img/set.png", AssetType.IMAGE);
@@ -276,9 +279,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/SpriteSheetData.xml", __ASSET__img_spritesheetdata_xml);
 		type.set ("img/SpriteSheetData.xml", AssetType.TEXT);
-		
-		className.set ("img/Voyager-records-631.jpg__800x600_q85_crop.jpg", __ASSET__img_voyager_records_631_jpg__800x600_q85_crop_jpg);
-		type.set ("img/Voyager-records-631.jpg__800x600_q85_crop.jpg", AssetType.IMAGE);
 		
 		
 		if (useManifest) {
@@ -997,26 +997,26 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if !display
 #if flash
 
-@:keep @:bind #if display private #end class __ASSET__img_2dtoolkit_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_32_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_ac_dc_logo_5_600x270_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_arr80xv_700b_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_avxlppo_460sv_mp4 extends null { }
-@:keep @:bind #if display private #end class __ASSET__img_awo9jdn_460sv_mp4 extends null { }
-@:keep @:bind #if display private #end class __ASSET__img_cell_blue_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_cell_green_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_cell_grey_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_cell_move_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_cell_purple_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_cell_red_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_cell_yellow_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_grass_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_image_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_960x480_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_blue_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_green_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_grey_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_purple_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_red_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_yellow_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_kit_from_firefox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_objects_apple_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_objects_burger_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_player_hero_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_player_wormanim_json extends null { }
+@:keep @:bind #if display private #end class __ASSET__img_player_wormanim_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_progressbar_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_progressbar_healthprogress_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_set_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_spritesheetdata_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_spritesheetdata_xml extends null { }
-@:keep @:bind #if display private #end class __ASSET__img_voyager_records_631_jpg__800x600_q85_crop_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 
 
 #elseif html5
@@ -1050,26 +1050,26 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if (windows || mac || linux || cpp)
 
 
-@:image("assets/img/2dtoolkit.png") #if display private #end class __ASSET__img_2dtoolkit_png extends lime.graphics.Image {}
 @:image("assets/img/32.png") #if display private #end class __ASSET__img_32_png extends lime.graphics.Image {}
-@:image("assets/img/AC-DC-Logo-5-600x270.png") #if display private #end class __ASSET__img_ac_dc_logo_5_600x270_png extends lime.graphics.Image {}
-@:image("assets/img/arR80xV_700b.jpg") #if display private #end class __ASSET__img_arr80xv_700b_jpg extends lime.graphics.Image {}
-@:file("assets/img/aVXLppO_460sv.mp4") #if display private #end class __ASSET__img_avxlppo_460sv_mp4 extends lime.utils.ByteArray {}
-@:file("assets/img/aWO9jDn_460sv.mp4") #if display private #end class __ASSET__img_awo9jdn_460sv_mp4 extends lime.utils.ByteArray {}
-@:image("assets/img/Cell_Blue.png") #if display private #end class __ASSET__img_cell_blue_png extends lime.graphics.Image {}
-@:image("assets/img/Cell_Green.png") #if display private #end class __ASSET__img_cell_green_png extends lime.graphics.Image {}
-@:image("assets/img/Cell_Grey.png") #if display private #end class __ASSET__img_cell_grey_png extends lime.graphics.Image {}
-@:image("assets/img/Cell_Move.png") #if display private #end class __ASSET__img_cell_move_png extends lime.graphics.Image {}
-@:image("assets/img/Cell_Purple.png") #if display private #end class __ASSET__img_cell_purple_png extends lime.graphics.Image {}
-@:image("assets/img/Cell_Red.png") #if display private #end class __ASSET__img_cell_red_png extends lime.graphics.Image {}
-@:image("assets/img/Cell_Yellow.png") #if display private #end class __ASSET__img_cell_yellow_png extends lime.graphics.Image {}
-@:image("assets/img/Grass.jpg") #if display private #end class __ASSET__img_grass_jpg extends lime.graphics.Image {}
-@:image("assets/img/image.png") #if display private #end class __ASSET__img_image_png extends lime.graphics.Image {}
+@:image("assets/img/background/level1/background.png") #if display private #end class __ASSET__img_background_level1_background_png extends lime.graphics.Image {}
+@:image("assets/img/background/level1/Background_960x480.png") #if display private #end class __ASSET__img_background_level1_background_960x480_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/collectable_Blue.png") #if display private #end class __ASSET__img_collectables_collectable_blue_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/collectable_Green.png") #if display private #end class __ASSET__img_collectables_collectable_green_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/collectable_Grey.png") #if display private #end class __ASSET__img_collectables_collectable_grey_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/collectable_Purple.png") #if display private #end class __ASSET__img_collectables_collectable_purple_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/collectable_Red.png") #if display private #end class __ASSET__img_collectables_collectable_red_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/collectable_Yellow.png") #if display private #end class __ASSET__img_collectables_collectable_yellow_png extends lime.graphics.Image {}
 @:image("assets/img/kit_from_firefox.png") #if display private #end class __ASSET__img_kit_from_firefox_png extends lime.graphics.Image {}
+@:image("assets/img/objects/apple.png") #if display private #end class __ASSET__img_objects_apple_png extends lime.graphics.Image {}
+@:image("assets/img/objects/burger.png") #if display private #end class __ASSET__img_objects_burger_png extends lime.graphics.Image {}
+@:image("assets/img/player/hero.png") #if display private #end class __ASSET__img_player_hero_png extends lime.graphics.Image {}
+@:file("assets/img/player/wormanim.json") #if display private #end class __ASSET__img_player_wormanim_json extends lime.utils.ByteArray {}
+@:image("assets/img/player/wormanim.png") #if display private #end class __ASSET__img_player_wormanim_png extends lime.graphics.Image {}
+@:image("assets/img/ProgressBar/Background.png") #if display private #end class __ASSET__img_progressbar_background_png extends lime.graphics.Image {}
+@:image("assets/img/ProgressBar/HealthProgress.png") #if display private #end class __ASSET__img_progressbar_healthprogress_png extends lime.graphics.Image {}
 @:image("assets/img/set.png") #if display private #end class __ASSET__img_set_png extends lime.graphics.Image {}
 @:image("assets/img/SpriteSheetData.png") #if display private #end class __ASSET__img_spritesheetdata_png extends lime.graphics.Image {}
 @:file("assets/img/SpriteSheetData.xml") #if display private #end class __ASSET__img_spritesheetdata_xml extends lime.utils.ByteArray {}
-@:image("assets/img/Voyager-records-631.jpg__800x600_q85_crop.jpg") #if display private #end class __ASSET__img_voyager_records_631_jpg__800x600_q85_crop_jpg extends lime.graphics.Image {}
 
 
 
