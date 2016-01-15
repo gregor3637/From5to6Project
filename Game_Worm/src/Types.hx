@@ -9,7 +9,8 @@ import Effect;
 class Types {
 	
 	
-	static public var APPLE    = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Blue.png" };
+	//static public var APPLE    = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Blue.png" };
+	static public var APPLE    = { isHealthy: Effect.Positive, pathToImage: "img/objects/apple.png" };
 	static public var GRAPES   = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Purple.png" };
 	static public var KIWI     = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Green.png" };
 

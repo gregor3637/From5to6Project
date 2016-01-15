@@ -18,7 +18,7 @@ class Indicators extends Sprite {
 	private function init(e:Event):Void {
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		
-		health = new ProgressBar(0.5, 10);
+		health = new ProgressBar(20, 100);
 		this.addChild(health);
 	}
 	
