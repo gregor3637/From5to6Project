@@ -1,5 +1,6 @@
 package;
 
+import haxe.Constraints.Function;
 import haxe.io.Error;
 import motion.Actuate;
 import openfl.Assets;
@@ -12,118 +13,97 @@ import openfl.events.Event;
  * ...
  * @author Mihail Mitov
  */
-class ProgressBar extends Sprite{
-	@:isVar private var totalValue(get, set):Float;
-	@:isVar private var currentValue(get, set):Float;
-	private var percentageProgress:Float;
-	
+class ProgressBar extends Sprite {
 	private var LEVEL_PROGRESSION:Float = 2;
-	
-	
-	private var bgImageData:BitmapData;
-	private var bgImage:Bitmap;
-	private var bgPath:String;
-	
-	private var progressImageData:BitmapData;
-	private var progressImage:Bitmap;
-	private var progressPath:String;
+	@:isVar public var maxValue(get, null):Float;
+	@:isVar public var currentValue(get, null):Float;
+	@:isVar public var canOverlap(get, set):Bool;
+	@:isVar public var startOver(get, set):Int = -1;
+	@:isVar public var percentageProgress(get, set):Float;// how to set this to 'protected' access, so only objects that extend the class have it ?!?
+	@:isVar public var visualize(get, set):Function;
 	
 	public function new(startValue:Float = 0, endValue:Float = 1, isOverlooping:Bool = false) {
 		super();
 		this.currentValue = startValue;
-		this.totalValue = endValue;
-		this.addEventListener(Event.ADDED_TO_STAGE, init);
-		
-		bgPath = "img/ProgressBar/Background.png";
-		progressPath = "img/ProgressBar/HealthProgress.png";
-	}
-	
-	private function init(e:Event):Void {
-		removeEventListener(Event.ADDED_TO_STAGE, init);
-		
-		bgImageData = Assets.getBitmapData(bgPath);
-		bgImage = new Bitmap(bgImageData);
-		this.addChild(bgImage);
-		
-		progressImageData = Assets.getBitmapData(progressPath);
-		progressImage = new Bitmap(progressImageData);
-		this.addChild(progressImage);
-		
-		progressImage.scaleX = currentValue / totalValue;
-		percentageProgress = progressImage.scaleX;
+		this.maxValue = endValue;
 	}
 	
 	public function reset():Void {
 		currentValue = 0;
 	}
 	
-	public function update(value:Float = 0, exactValue:Bool = false, percentageOfCurrentValue:Bool = false, percentageOfFullValue:Bool = false, canOverlap:Bool = false):Void {
-		if ( 1 < Validation.conditionFrequency(true, [exactValue, percentageOfCurrentValue, percentageOfFullValue])) {
-			//throw new Error("Only one condition from [exactValue,percentageOfCurrent,percentageOfFull] is allowed to be 'true' !");
-			//throw new Error("n");
-		}
+	
+	
+	
+	public function updateByValue(value:Float = 0):Void {
+		calculateEndValue(value);
+	}
+	public function updateByPercentOfCurrent(value:Float):Void {
+		value = (value / 100) * currentValue;
+		calculateEndValue(value);
+	}
+	public function updateByPercentOfTotal(value:Float):Void {
+		value = (value / 100) * maxValue;
+		calculateEndValue(value);
+	}
+	
+	
+	
+	
+	private function calculateEndValue(value:Float):Void {
 		var percent:Float = 0;
 		var trimmedPercent:Float = 0;
 		
-		if (percentageOfCurrentValue) {
-			value = (value / 100) * currentValue;
-		}
-		if (percentageOfFullValue) {
-			value = (value / 100) * totalValue;
-		}
+		currentValue += value;
 		
 		if (!canOverlap) {
-			currentValue += value;
 			currentValue = MathUtils.roundToDecimal(currentValue, 2);
-			currentValue = (currentValue > totalValue)? totalValue : currentValue;	
+			currentValue = (currentValue > maxValue)? maxValue : currentValue;	
 			
-			percent = currentValue / totalValue;
-			trimmedPercent = MathUtils.roundToDecimal(percent, 2);
-			percentageProgress += trimmedPercent;
+			percent = currentValue / maxValue;
+			percentageProgress = MathUtils.roundToDecimal(percent, 2);
 			percentageProgress = (percentageProgress > 1)? 1 : percentageProgress;
 		}
 		else {
-			var startOver:Int = -1;
-			var leftOver:Float = value;
+			var hasLeftOver:Bool = true;
+			startOver = -1;
 			
 			do {
-				if (startOver > -1) {
-					totalValue = totalValue * LEVEL_PROGRESSION;
+				if (currentValue > maxValue) {
+					currentValue = currentValue - maxValue;
+					++startOver;
+					maxValue = maxValue * LEVEL_PROGRESSION;
 				}
-				currentValue += leftOver;
-				leftOver = (currentValue > totalValue)? currentValue - totalValue : 0;
-				currentValue = (currentValue > totalValue)? totalValue : currentValue;	
-				++startOver;
-			} while (currentValue >= totalValue);
+				else {
+					hasLeftOver = false;
+				}
+			} while (hasLeftOver);
 			
-			percent = currentValue / totalValue;
+			percent = currentValue / maxValue;
 			percentageProgress = MathUtils.roundToDecimal(percent, 2);
 			
 			trace("ProgressBar | startOver = " + startOver);
 		}
 		
-		animateProgress(percentageProgress);
+		visualize(percentageProgress);
 	}
 	
-	private function animateProgress(percentageProgress:Float) {
-		trace("ProgressBar | animateProgress | percentageProgress = " + percentageProgress);
-		Actuate.tween(progressImage, 1, { scaleX: percentageProgress } );
-	}
+	//------------------------------------------ setters gettrs ------------------------------------------
+	function get_visualize():Function { return visualize; }
+	function set_visualize(value:Function):Function { return visualize = value; }
 	
-	function get_totalValue():Float {
-		return totalValue;
-	}
+	function get_startOver():Int { return startOver; }
+	function set_startOver(value:Int):Int { return startOver = value; }
 	
-	function set_totalValue(value:Float):Float {
-		return totalValue = value;
-	}
+	function get_maxValue():Float { return maxValue; }
+	//function set_maxValue(value:Float):Float { return maxValue = value; }
 	
-	function get_currentValue():Float {
-		return currentValue;
-	}
+	function get_currentValue():Float { return currentValue; }
+	//function set_currentValue(value:Float):Float { return currentValue = value; }
 	
-	function set_currentValue(value:Float):Float {
-		trace("ProgressBar | set_currentValue = " + value);
-		return currentValue = value;
-	}
+	function get_canOverlap():Bool { return canOverlap; }
+	function set_canOverlap(value:Bool):Bool { return canOverlap = value; }
+	
+	function get_percentageProgress():Float { return percentageProgress; }
+	function set_percentageProgress(value:Float):Float { return percentageProgress = value; }
 }

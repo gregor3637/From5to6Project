@@ -58,7 +58,7 @@ class Main extends Sprite {
 		indicators = new Indicators();
 		addChild(indicators);
 		indicators.x = stage.stageWidth - indicators.width * 1.2;
-		indicators.y = 0 + indicators.height * 1.2;
+		indicators.y = 100;//0 + indicators.height * 1.2;
 		//indicators.health.reset();
 		//indicators.health.update(2);
 		
@@ -75,9 +75,11 @@ class Main extends Sprite {
 	}
 	
 	private function onMoveChange(ev:MoveCommandEvent):Void {
-		//indicators.health.update(300,false,false,true,true);
-		indicators.health.update(300,false,true,false,true);
-		//indicators.health.update(300,true,false,false,true);
+		//indicators.health.canOverlap = true;
+		//indicators.health.updateByValue(140);
+		//indicators.health.updateByPercentOfCurrent(300);//24
+		//indicators.health.updateByPercentOfTotal(300);
+		indicators.mana.updateByValue(10);
 		flowControl.moveHero(ev.movementType);
 	}
 	

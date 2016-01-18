@@ -9,6 +9,7 @@ import openfl.events.Event;
 class Indicators extends Sprite {
 	
 	@:isVar public var health(get, null):ProgressBar;
+	@:isVar public var mana(get, null):ProgressBar;
 	
 	public function new() {
 		super();
@@ -18,16 +19,21 @@ class Indicators extends Sprite {
 	private function init(e:Event):Void {
 		removeEventListener(Event.ADDED_TO_STAGE, init);
 		
-		health = new ProgressBar(20, 100);
+		health = new RectangularProgress(20, 100);
 		this.addChild(health);
-	}
-	
-	public function changeHealth(value:Int = 0, exactValue:Bool = false, percentageOfCurrent:Bool = false, percentageOfFull:Bool = false):Void {
-		health.update(value, false, exactValue, percentageOfCurrent, percentageOfFull);
+		
+		
+		mana = new PieChartProgress(25, 100);
+		mana.y = 100;
+		this.addChild(mana);
 	}
 	
 	function get_health():ProgressBar {
 		return health;
+	}
+	
+	function get_mana():ProgressBar {
+		return mana;
 	}
 	
 }
