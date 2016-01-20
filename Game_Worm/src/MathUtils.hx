@@ -26,4 +26,8 @@ class MathUtils {
 		//
 		//return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
 	//}
+	
+	static public  function angleToRadians(angle:Float):Float {
+		return angle / 180 * Math.PI;
+	}
 }

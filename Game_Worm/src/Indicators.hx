@@ -23,7 +23,7 @@ class Indicators extends Sprite {
 		this.addChild(health);
 		
 		
-		mana = new PieChartProgress(25, 100);
+		mana = new PieChartProgress(40, 100);
 		mana.y = 100;
 		this.addChild(mana);
 	}

@@ -27,7 +27,7 @@ class RectangularProgress extends ProgressBar {
 		bgPath = "img/ProgressBar/Background.png";
 		progressPath = "img/ProgressBar/HealthProgress.png";
 		
-		this.visualize = animateProgress;
+		super.visualize = visualizeProgress;
 	}
 	
 	private function init(e:Event):Void {
@@ -41,14 +41,22 @@ class RectangularProgress extends ProgressBar {
 		progressImage = new Bitmap(progressImageData);
 		this.addChild(progressImage);
 		
-		progressImage.scaleX = currentValue / maxValue;
-		percentageProgress = progressImage.scaleX;
-		animateProgress(percentageProgress);
+		progressImage.scaleX = super.currentValueOfMaxValue/ super.maxValue;
+		percentageComplete = progressImage.scaleX;
+		
+		if (super.currentValueOfMaxValue != 0) {
+			super.visualize(super.currentValueOfMaxValue / 100, 0, false);
+		}
 	}
 	
-	private function animateProgress(percentageProgress:Float):Void {
+	private function visualizeProgress(percentageProgress:Float, overloops:Int = 0, animateIt:Bool = true):Void {
 		trace("RectangularProgress | animateProgress | percentageProgress = " + percentageProgress);
-		Actuate.tween(progressImage, 1, { scaleX: percentageProgress } );
+		if (animateIt) {
+			Actuate.tween(progressImage, 1, { scaleX: percentageProgress } );
+		}
+		else {
+			progressImage.scaleX = percentageProgress;
+		}
 	}
 	
 	

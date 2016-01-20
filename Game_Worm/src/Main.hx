@@ -76,10 +76,11 @@ class Main extends Sprite {
 	
 	private function onMoveChange(ev:MoveCommandEvent):Void {
 		//indicators.health.canOverlap = true;
-		//indicators.health.updateByValue(140);
-		//indicators.health.updateByPercentOfCurrent(300);//24
-		//indicators.health.updateByPercentOfTotal(300);
-		indicators.mana.updateByValue(10);
+		//indicators.health.updateWithValue(140);
+		//indicators.health.updateWithPercentOfCurrent(300);//24
+		//indicators.health.updateWithPercentOfTotal(300);
+		indicators.mana.canOverlap = true;
+		indicators.mana.updateWithValue(140);//24
 		flowControl.moveHero(ev.movementType);
 	}
 	

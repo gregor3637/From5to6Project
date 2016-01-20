@@ -170,7 +170,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "569",
+			build: "697",
 			company: "Mihail Mitov",
 			file: "GameWorm",
 			fps: 60,
