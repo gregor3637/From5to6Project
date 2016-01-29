@@ -34,35 +34,63 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/background/level1/background.png");
+		urls.push ("img/background/level1/background-1.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/background/level1/Background_960x480.png");
+		urls.push ("img/background/level1/background-2.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Collectables/collectable_Blue.png");
+		urls.push ("img/background/level1/background-3.jpg");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Collectables/collectable_Green.png");
+		urls.push ("img/Collectables/apple.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Collectables/collectable_Grey.png");
+		urls.push ("img/Collectables/avocado.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Collectables/collectable_Purple.png");
+		urls.push ("img/Collectables/badBasket.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Collectables/collectable_Red.png");
+		urls.push ("img/Collectables/burger.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/Collectables/collectable_Yellow.png");
+		urls.push ("img/Collectables/carrot.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/donut.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/frenchFries.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/goodBasket.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/lettuce.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/pizza.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/sausage.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Collectables/watermelon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -75,6 +103,10 @@ class ApplicationMain {
 		
 		
 		urls.push ("img/objects/burger.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/player/character.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -170,7 +202,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "703",
+			build: "708",
 			company: "Mihail Mitov",
 			file: "GameWorm",
 			fps: 60,
@@ -255,15 +287,7 @@ class ApplicationMain {
 			
 		}
 		
-		#if !flash
-		if (openfl.Lib.current.stage.window.fullscreen) {
-			
-			openfl.Lib.current.stage.dispatchEvent (new openfl.events.FullScreenEvent (openfl.events.FullScreenEvent.FULL_SCREEN, false, false, true, true));
-			
-		}
-		
 		openfl.Lib.current.stage.dispatchEvent (new openfl.events.Event (openfl.events.Event.RESIZE, false, false));
-		#end
 		
 	}
 	

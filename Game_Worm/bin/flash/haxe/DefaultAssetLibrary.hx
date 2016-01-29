@@ -73,34 +73,58 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		#end
 		
 		#if flash
 		
 		className.set ("img/32.png", __ASSET__img_32_png);
 		type.set ("img/32.png", AssetType.IMAGE);
-		className.set ("img/background/level1/background.png", __ASSET__img_background_level1_background_png);
-		type.set ("img/background/level1/background.png", AssetType.IMAGE);
-		className.set ("img/background/level1/Background_960x480.png", __ASSET__img_background_level1_background_960x480_png);
-		type.set ("img/background/level1/Background_960x480.png", AssetType.IMAGE);
-		className.set ("img/Collectables/collectable_Blue.png", __ASSET__img_collectables_collectable_blue_png);
-		type.set ("img/Collectables/collectable_Blue.png", AssetType.IMAGE);
-		className.set ("img/Collectables/collectable_Green.png", __ASSET__img_collectables_collectable_green_png);
-		type.set ("img/Collectables/collectable_Green.png", AssetType.IMAGE);
-		className.set ("img/Collectables/collectable_Grey.png", __ASSET__img_collectables_collectable_grey_png);
-		type.set ("img/Collectables/collectable_Grey.png", AssetType.IMAGE);
-		className.set ("img/Collectables/collectable_Purple.png", __ASSET__img_collectables_collectable_purple_png);
-		type.set ("img/Collectables/collectable_Purple.png", AssetType.IMAGE);
-		className.set ("img/Collectables/collectable_Red.png", __ASSET__img_collectables_collectable_red_png);
-		type.set ("img/Collectables/collectable_Red.png", AssetType.IMAGE);
-		className.set ("img/Collectables/collectable_Yellow.png", __ASSET__img_collectables_collectable_yellow_png);
-		type.set ("img/Collectables/collectable_Yellow.png", AssetType.IMAGE);
+		className.set ("img/background/level1/background-1.jpg", __ASSET__img_background_level1_background_1_jpg);
+		type.set ("img/background/level1/background-1.jpg", AssetType.IMAGE);
+		className.set ("img/background/level1/background-2.jpg", __ASSET__img_background_level1_background_2_jpg);
+		type.set ("img/background/level1/background-2.jpg", AssetType.IMAGE);
+		className.set ("img/background/level1/background-3.jpg", __ASSET__img_background_level1_background_3_jpg);
+		type.set ("img/background/level1/background-3.jpg", AssetType.IMAGE);
+		className.set ("img/Collectables/apple.png", __ASSET__img_collectables_apple_png);
+		type.set ("img/Collectables/apple.png", AssetType.IMAGE);
+		className.set ("img/Collectables/avocado.png", __ASSET__img_collectables_avocado_png);
+		type.set ("img/Collectables/avocado.png", AssetType.IMAGE);
+		className.set ("img/Collectables/badBasket.png", __ASSET__img_collectables_badbasket_png);
+		type.set ("img/Collectables/badBasket.png", AssetType.IMAGE);
+		className.set ("img/Collectables/burger.png", __ASSET__img_collectables_burger_png);
+		type.set ("img/Collectables/burger.png", AssetType.IMAGE);
+		className.set ("img/Collectables/carrot.png", __ASSET__img_collectables_carrot_png);
+		type.set ("img/Collectables/carrot.png", AssetType.IMAGE);
+		className.set ("img/Collectables/donut.png", __ASSET__img_collectables_donut_png);
+		type.set ("img/Collectables/donut.png", AssetType.IMAGE);
+		className.set ("img/Collectables/frenchFries.png", __ASSET__img_collectables_frenchfries_png);
+		type.set ("img/Collectables/frenchFries.png", AssetType.IMAGE);
+		className.set ("img/Collectables/goodBasket.png", __ASSET__img_collectables_goodbasket_png);
+		type.set ("img/Collectables/goodBasket.png", AssetType.IMAGE);
+		className.set ("img/Collectables/lettuce.png", __ASSET__img_collectables_lettuce_png);
+		type.set ("img/Collectables/lettuce.png", AssetType.IMAGE);
+		className.set ("img/Collectables/pizza.png", __ASSET__img_collectables_pizza_png);
+		type.set ("img/Collectables/pizza.png", AssetType.IMAGE);
+		className.set ("img/Collectables/sausage.png", __ASSET__img_collectables_sausage_png);
+		type.set ("img/Collectables/sausage.png", AssetType.IMAGE);
+		className.set ("img/Collectables/watermelon.png", __ASSET__img_collectables_watermelon_png);
+		type.set ("img/Collectables/watermelon.png", AssetType.IMAGE);
 		className.set ("img/kit_from_firefox.png", __ASSET__img_kit_from_firefox_png);
 		type.set ("img/kit_from_firefox.png", AssetType.IMAGE);
 		className.set ("img/objects/apple.png", __ASSET__img_objects_apple_png);
 		type.set ("img/objects/apple.png", AssetType.IMAGE);
 		className.set ("img/objects/burger.png", __ASSET__img_objects_burger_png);
 		type.set ("img/objects/burger.png", AssetType.IMAGE);
+		className.set ("img/player/character.png", __ASSET__img_player_character_png);
+		type.set ("img/player/character.png", AssetType.IMAGE);
 		className.set ("img/player/hero.png", __ASSET__img_player_hero_png);
 		type.set ("img/player/hero.png", AssetType.IMAGE);
 		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
@@ -126,35 +150,63 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/background/level1/background.png";
+		id = "img/background/level1/background-1.jpg";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/background/level1/Background_960x480.png";
+		id = "img/background/level1/background-2.jpg";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Collectables/collectable_Blue.png";
+		id = "img/background/level1/background-3.jpg";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Collectables/collectable_Green.png";
+		id = "img/Collectables/apple.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Collectables/collectable_Grey.png";
+		id = "img/Collectables/avocado.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Collectables/collectable_Purple.png";
+		id = "img/Collectables/badBasket.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Collectables/collectable_Red.png";
+		id = "img/Collectables/burger.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/Collectables/collectable_Yellow.png";
+		id = "img/Collectables/carrot.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/donut.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/frenchFries.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/goodBasket.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/lettuce.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/pizza.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/sausage.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/Collectables/watermelon.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -167,6 +219,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		type.set (id, AssetType.IMAGE);
 		id = "img/objects/burger.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/player/character.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -223,29 +279,50 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/32.png", __ASSET__img_32_png);
 		type.set ("img/32.png", AssetType.IMAGE);
 		
-		className.set ("img/background/level1/background.png", __ASSET__img_background_level1_background_png);
-		type.set ("img/background/level1/background.png", AssetType.IMAGE);
+		className.set ("img/background/level1/background-1.jpg", __ASSET__img_background_level1_background_1_jpg);
+		type.set ("img/background/level1/background-1.jpg", AssetType.IMAGE);
 		
-		className.set ("img/background/level1/Background_960x480.png", __ASSET__img_background_level1_background_960x480_png);
-		type.set ("img/background/level1/Background_960x480.png", AssetType.IMAGE);
+		className.set ("img/background/level1/background-2.jpg", __ASSET__img_background_level1_background_2_jpg);
+		type.set ("img/background/level1/background-2.jpg", AssetType.IMAGE);
 		
-		className.set ("img/Collectables/collectable_Blue.png", __ASSET__img_collectables_collectable_blue_png);
-		type.set ("img/Collectables/collectable_Blue.png", AssetType.IMAGE);
+		className.set ("img/background/level1/background-3.jpg", __ASSET__img_background_level1_background_3_jpg);
+		type.set ("img/background/level1/background-3.jpg", AssetType.IMAGE);
 		
-		className.set ("img/Collectables/collectable_Green.png", __ASSET__img_collectables_collectable_green_png);
-		type.set ("img/Collectables/collectable_Green.png", AssetType.IMAGE);
+		className.set ("img/Collectables/apple.png", __ASSET__img_collectables_apple_png);
+		type.set ("img/Collectables/apple.png", AssetType.IMAGE);
 		
-		className.set ("img/Collectables/collectable_Grey.png", __ASSET__img_collectables_collectable_grey_png);
-		type.set ("img/Collectables/collectable_Grey.png", AssetType.IMAGE);
+		className.set ("img/Collectables/avocado.png", __ASSET__img_collectables_avocado_png);
+		type.set ("img/Collectables/avocado.png", AssetType.IMAGE);
 		
-		className.set ("img/Collectables/collectable_Purple.png", __ASSET__img_collectables_collectable_purple_png);
-		type.set ("img/Collectables/collectable_Purple.png", AssetType.IMAGE);
+		className.set ("img/Collectables/badBasket.png", __ASSET__img_collectables_badbasket_png);
+		type.set ("img/Collectables/badBasket.png", AssetType.IMAGE);
 		
-		className.set ("img/Collectables/collectable_Red.png", __ASSET__img_collectables_collectable_red_png);
-		type.set ("img/Collectables/collectable_Red.png", AssetType.IMAGE);
+		className.set ("img/Collectables/burger.png", __ASSET__img_collectables_burger_png);
+		type.set ("img/Collectables/burger.png", AssetType.IMAGE);
 		
-		className.set ("img/Collectables/collectable_Yellow.png", __ASSET__img_collectables_collectable_yellow_png);
-		type.set ("img/Collectables/collectable_Yellow.png", AssetType.IMAGE);
+		className.set ("img/Collectables/carrot.png", __ASSET__img_collectables_carrot_png);
+		type.set ("img/Collectables/carrot.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/donut.png", __ASSET__img_collectables_donut_png);
+		type.set ("img/Collectables/donut.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/frenchFries.png", __ASSET__img_collectables_frenchfries_png);
+		type.set ("img/Collectables/frenchFries.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/goodBasket.png", __ASSET__img_collectables_goodbasket_png);
+		type.set ("img/Collectables/goodBasket.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/lettuce.png", __ASSET__img_collectables_lettuce_png);
+		type.set ("img/Collectables/lettuce.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/pizza.png", __ASSET__img_collectables_pizza_png);
+		type.set ("img/Collectables/pizza.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/sausage.png", __ASSET__img_collectables_sausage_png);
+		type.set ("img/Collectables/sausage.png", AssetType.IMAGE);
+		
+		className.set ("img/Collectables/watermelon.png", __ASSET__img_collectables_watermelon_png);
+		type.set ("img/Collectables/watermelon.png", AssetType.IMAGE);
 		
 		className.set ("img/kit_from_firefox.png", __ASSET__img_kit_from_firefox_png);
 		type.set ("img/kit_from_firefox.png", AssetType.IMAGE);
@@ -255,6 +332,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/objects/burger.png", __ASSET__img_objects_burger_png);
 		type.set ("img/objects/burger.png", AssetType.IMAGE);
+		
+		className.set ("img/player/character.png", __ASSET__img_player_character_png);
+		type.set ("img/player/character.png", AssetType.IMAGE);
 		
 		className.set ("img/player/hero.png", __ASSET__img_player_hero_png);
 		type.set ("img/player/hero.png", AssetType.IMAGE);
@@ -875,7 +955,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 			var bytes = ByteArray.readFile ("assets/manifest");
 			#elseif (mac && java)
 			var bytes = ByteArray.readFile ("../Resources/manifest");
-			#elseif (ios || tvos)
+			#elseif ios
 			var bytes = ByteArray.readFile ("assets/manifest");
 			#else
 			var bytes = ByteArray.readFile ("manifest");
@@ -897,7 +977,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 							
 							if (!className.exists (asset.id)) {
 								
-								#if (ios || tvos)
+								#if ios
 								path.set (asset.id, "assets/" + asset.path);
 								#else
 								path.set (asset.id, asset.path);
@@ -998,17 +1078,25 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__img_32_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_960x480_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_blue_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_green_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_grey_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_purple_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_red_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
-@:keep @:bind #if display private #end class __ASSET__img_collectables_collectable_yellow_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_1_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_2_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_background_level1_background_3_jpg extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_apple_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_avocado_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_badbasket_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_burger_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_carrot_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_donut_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_frenchfries_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_goodbasket_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_lettuce_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_pizza_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_sausage_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_collectables_watermelon_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_kit_from_firefox_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_objects_apple_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_objects_burger_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_player_character_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_player_hero_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_player_wormanim_json extends flash.utils.ByteArray { }
 @:keep @:bind #if display private #end class __ASSET__img_player_wormanim_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
@@ -1043,6 +1131,14 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 
+
+
+
+
+
+
+
+
 #else
 
 
@@ -1051,17 +1147,25 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:image("assets/img/32.png") #if display private #end class __ASSET__img_32_png extends lime.graphics.Image {}
-@:image("assets/img/background/level1/background.png") #if display private #end class __ASSET__img_background_level1_background_png extends lime.graphics.Image {}
-@:image("assets/img/background/level1/Background_960x480.png") #if display private #end class __ASSET__img_background_level1_background_960x480_png extends lime.graphics.Image {}
-@:image("assets/img/Collectables/collectable_Blue.png") #if display private #end class __ASSET__img_collectables_collectable_blue_png extends lime.graphics.Image {}
-@:image("assets/img/Collectables/collectable_Green.png") #if display private #end class __ASSET__img_collectables_collectable_green_png extends lime.graphics.Image {}
-@:image("assets/img/Collectables/collectable_Grey.png") #if display private #end class __ASSET__img_collectables_collectable_grey_png extends lime.graphics.Image {}
-@:image("assets/img/Collectables/collectable_Purple.png") #if display private #end class __ASSET__img_collectables_collectable_purple_png extends lime.graphics.Image {}
-@:image("assets/img/Collectables/collectable_Red.png") #if display private #end class __ASSET__img_collectables_collectable_red_png extends lime.graphics.Image {}
-@:image("assets/img/Collectables/collectable_Yellow.png") #if display private #end class __ASSET__img_collectables_collectable_yellow_png extends lime.graphics.Image {}
+@:image("assets/img/background/level1/background-1.jpg") #if display private #end class __ASSET__img_background_level1_background_1_jpg extends lime.graphics.Image {}
+@:image("assets/img/background/level1/background-2.jpg") #if display private #end class __ASSET__img_background_level1_background_2_jpg extends lime.graphics.Image {}
+@:image("assets/img/background/level1/background-3.jpg") #if display private #end class __ASSET__img_background_level1_background_3_jpg extends lime.graphics.Image {}
+@:image("assets/img/Collectables/apple.png") #if display private #end class __ASSET__img_collectables_apple_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/avocado.png") #if display private #end class __ASSET__img_collectables_avocado_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/badBasket.png") #if display private #end class __ASSET__img_collectables_badbasket_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/burger.png") #if display private #end class __ASSET__img_collectables_burger_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/carrot.png") #if display private #end class __ASSET__img_collectables_carrot_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/donut.png") #if display private #end class __ASSET__img_collectables_donut_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/frenchFries.png") #if display private #end class __ASSET__img_collectables_frenchfries_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/goodBasket.png") #if display private #end class __ASSET__img_collectables_goodbasket_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/lettuce.png") #if display private #end class __ASSET__img_collectables_lettuce_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/pizza.png") #if display private #end class __ASSET__img_collectables_pizza_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/sausage.png") #if display private #end class __ASSET__img_collectables_sausage_png extends lime.graphics.Image {}
+@:image("assets/img/Collectables/watermelon.png") #if display private #end class __ASSET__img_collectables_watermelon_png extends lime.graphics.Image {}
 @:image("assets/img/kit_from_firefox.png") #if display private #end class __ASSET__img_kit_from_firefox_png extends lime.graphics.Image {}
 @:image("assets/img/objects/apple.png") #if display private #end class __ASSET__img_objects_apple_png extends lime.graphics.Image {}
 @:image("assets/img/objects/burger.png") #if display private #end class __ASSET__img_objects_burger_png extends lime.graphics.Image {}
+@:image("assets/img/player/character.png") #if display private #end class __ASSET__img_player_character_png extends lime.graphics.Image {}
 @:image("assets/img/player/hero.png") #if display private #end class __ASSET__img_player_hero_png extends lime.graphics.Image {}
 @:file("assets/img/player/wormanim.json") #if display private #end class __ASSET__img_player_wormanim_json extends lime.utils.ByteArray {}
 @:image("assets/img/player/wormanim.png") #if display private #end class __ASSET__img_player_wormanim_png extends lime.graphics.Image {}

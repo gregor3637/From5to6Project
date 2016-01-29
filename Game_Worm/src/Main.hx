@@ -49,7 +49,7 @@ class Main extends Sprite {
 		
 		hero = new VisibleStaticObject("img/player/hero.png");
 		
-		var background:VisibleStaticObject = new VisibleStaticObject("img/background/level1/Background_960x480.png");
+		var background:VisibleStaticObject = new VisibleStaticObject("img/background/level1/background-1.jpg");
 		addChild(background);
 		
 		
