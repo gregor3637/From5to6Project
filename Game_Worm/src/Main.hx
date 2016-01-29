@@ -16,7 +16,6 @@ import openfl.Lib;
 class Main extends Sprite {
 	
 	private var fallingObject:Collectable;
-	private var frameCounter:Int = 0;
 	
 	private var typeControl:CollectableTypeControl;
 	private var flowControl:FlowControl;
@@ -68,7 +67,7 @@ class Main extends Sprite {
 		flowControl = new FlowControl();
 		this.addChild(flowControl);
 		
-		flowControl.addEventListener(FlowControl.ELEMENT_DESTROYED, requestNewItem);
+		flowControl.addEventListener(FlowControl.ELEMENT_REQUEST_CONFIRMED, manufactureElement);
 		addEventListener(Event.ENTER_FRAME, onFrame);
 		
 		startGame();
@@ -86,10 +85,10 @@ class Main extends Sprite {
 	
 	private function startGame() {
 		flowControl.addHero(hero);
-		requestNewItem();
+		manufactureElement();
 	}
 	
-	private function requestNewItem(e:Event = null):Void {
+	private function manufactureElement(ev:Event = null):Void {
 		var info:CollectableInfoVO = typeControl.getType();
 		var newElement:Collectable = Collectable.create(info);
 		flowControl.addNewElements(newElement);

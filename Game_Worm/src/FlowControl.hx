@@ -2,14 +2,17 @@ package;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
+import openfl.geom.Point;
 
 /**
  * ...
  * @author Mihail Mitov
  */
 class FlowControl extends Sprite {
-	static public inline var ELEMENT_DESTROYED:String = "objectDestroyed";
-	private var TICKS_FOR_NEW_ELEMENT:Int = 50;
+	static public inline var ELEMENT_REQUEST_CONFIRMED:String = "requestNewElement";
+	private var TICKS_FOR_NEW_ELEMENT:Int = 50; //type needs to be const, but how to do it in Haxe
+	private var MAX_ELEMENTS_ON_STAGE:Int = 5;  //type needs to be const, but how to do it in Haxe
+	private var elementsOnStage:Int = 0;
 	private var ticks:Int;
 	private var fallingObjects:Array<Collectable>;
 	
@@ -20,6 +23,9 @@ class FlowControl extends Sprite {
 	private var oldElementWidth:Int;
 	
 	private var hero:VisibleStaticObject;
+	
+	private var conditionGameEnded:Bool = false;
+	
 	
 	public function new() {
 		super();
@@ -43,13 +49,28 @@ class FlowControl extends Sprite {
 	}
 	
 	public function moveHero(direction:Direction):Void {
+		var diversion:Point = new Point();
+		
 		switch(direction) {
-			case Direction.LEFT: hero.x -= 5;
-			case Direction.RIGHT: hero.x += 5;
-			case Direction.DOWN: hero.y += 5;
-			case Direction.UP: hero.y -= 5;
+			case Direction.LEFT: diversion.x -= 5;
+			case Direction.RIGHT: diversion.x += 5;
+			case Direction.DOWN: diversion.y += 5;
+			case Direction.UP: diversion.y -= 5;
 			case Direction.MISSING: trace("You cant move with that key");
 		}
+		
+		setNewHeroPosition(diversion);
+	}
+	
+	private function setNewHeroPosition(diversion:Point) {
+		if (hero.x + diversion.x < 0) { //left edge
+			return;
+		}
+		if (hero.x + hero.width + diversion.x > playfieldWidth) { //right edge
+			return;
+		}
+		
+		hero.x += diversion.x;
 	}
 	
 	public function addNewElements(element:Collectable):Void {
@@ -92,7 +113,7 @@ class FlowControl extends Sprite {
 	public function update():Void {
 		++ticks;
 		if (ticks % TICKS_FOR_NEW_ELEMENT == 0) {
-			dispatchEvent(new Event(ELEMENT_DESTROYED));
+			requestNewElement();
 		}
 		checkCollision();
 		checkIfElementOutOfRange();
@@ -116,7 +137,16 @@ class FlowControl extends Sprite {
 		this.removeChild(element);
 		element = null;
 		
-		dispatchEvent(new Event(ELEMENT_DESTROYED));
+		requestNewElement();
+	}
+	
+	private function requestNewElement() {
+		var conditionMaxElements:Bool = elementsOnStage <= MAX_ELEMENTS_ON_STAGE;
+		
+		if (!conditionMaxElements && !conditionGameEnded) {
+			dispatchEvent(new Event(ELEMENT_REQUEST_CONFIRMED));
+			++elementsOnStage;
+		}
 	}
 	
 	private function checkIfElementOutOfRange():Void {

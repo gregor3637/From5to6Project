@@ -33,8 +33,8 @@ class CommunicationControl extends Sprite{
 		switch(ev.keyCode) {
 			case 37: move = Direction.LEFT; 
 			case 39: move = Direction.RIGHT;
-			case 38: move = Direction.UP;
-			case 40: move = Direction.DOWN;
+			//case 38: move = Direction.UP;
+			//case 40: move = Direction.DOWN;
 			
 			default: move = Direction.MISSING;
 			trace("No move corresponds to button: " + String.fromCharCode(ev.keyCode) + " | ev.keyCode = " + ev.keyCode );
