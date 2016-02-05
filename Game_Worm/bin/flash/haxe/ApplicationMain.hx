@@ -102,7 +102,47 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/objects/avocado.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/badBasket.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/objects/burger.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/carrot.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/donut.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/frenchFries.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/goodBasket.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/lettuce.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/pizza.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/sausage.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/objects/watermelon.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -110,7 +150,15 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/player/firefox.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/player/hero.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/player/set.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -118,7 +166,7 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("img/player/wormanim.png");
+		urls.push ("img/player/WormAnim.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -202,7 +250,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "708",
+			build: "713",
 			company: "Mihail Mitov",
 			file: "GameWorm",
 			fps: 60,

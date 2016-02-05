@@ -5,6 +5,8 @@
 -D lime=2.6.6
 -cp C:/HaxeToolkit/haxe/lib/actuate/1,8,6
 -D actuate=1.8.6
+-cp C:/HaxeToolkit/haxe/lib/spritesheet/1,2,0
+-D spritesheet=1.2.0
 -cp src
 -D native-trace
 -D openfl-next

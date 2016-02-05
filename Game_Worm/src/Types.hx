@@ -24,8 +24,8 @@ class Types {
 	static public var BADBASKET     = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/badBasket.png" };
 	//static public var MAGNET   = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
 
-	static public var SNOW     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/collectable_Red.png" };
-	static public var RAIN     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var SNOW     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/goodBasket.png" };
+	static public var RAIN     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/goodBasket.png" };
 	
 	static public var GOOD_COLLECTABLES = [AVOCADO, LETTUCE, APPLE, WATERMELON, CARROT];
 	static public var BAD_COLLECTABLES  = [SAUSAGE, BURGER, PIZZA, FRESHFRIES, DONUT];

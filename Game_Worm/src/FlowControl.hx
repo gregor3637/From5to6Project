@@ -22,7 +22,7 @@ class FlowControl extends Sprite {
 	private var oldElementPosition:Int;
 	private var oldElementWidth:Int;
 	
-	private var hero:VisibleStaticObject;
+	private var hero:Player;	
 	
 	private var conditionGameEnded:Bool = false;
 	
@@ -39,9 +39,10 @@ class FlowControl extends Sprite {
 		playfieldHeight = this.parent.stage.stageHeight;
 		
 		fallingObjects = new Array<Collectable>();
+		
 	}
 	
-	public function addHero(obj:VisibleStaticObject):Void {
+	public function addHero(obj:Player):Void {
 		hero = obj;
 		this.addChild(hero);
 		hero.x = playfieldWidth * 0.5 - hero.width * 0.5;
@@ -52,12 +53,21 @@ class FlowControl extends Sprite {
 		var diversion:Point = new Point();
 		
 		switch(direction) {
-			case Direction.LEFT: diversion.x -= 5;
-			case Direction.RIGHT: diversion.x += 5;
+			case Direction.LEFT: {
+				diversion.x -= 5;
+				
+			}
+			case Direction.RIGHT: {
+				diversion.x += 5;
+			}
 			case Direction.DOWN: diversion.y += 5;
 			case Direction.UP: diversion.y -= 5;
-			case Direction.MISSING: trace("You cant move with that key");
+			case Direction.MISSING: {
+			//	hero.stand();
+				trace("You cant move with that key");
+			}
 		}
+		
 		
 		setNewHeroPosition(diversion);
 	}
@@ -164,5 +174,7 @@ class FlowControl extends Sprite {
 			fallingObjects[a].y += 2;
 		}
 	}
+	
+
 	
 }

@@ -6,7 +6,17 @@ import openfl.display.Graphics;
 import openfl.display.MovieClip;
 import openfl.display.Sprite;
 import openfl.events.Event;
+import openfl.events.KeyboardEvent;
 import openfl.Lib;
+import openfl.display.BitmapData;
+import openfl.display.Sprite;
+import openfl.ui.Keyboard;
+
+
+import spritesheet.AnimatedSprite;
+import spritesheet.data.BehaviorData;
+import spritesheet.importers.BitmapImporter;
+import spritesheet.Spritesheet;
 
 /**
  * ...
@@ -20,18 +30,20 @@ class Main extends Sprite {
 	private var typeControl:CollectableTypeControl;
 	private var flowControl:FlowControl;
 	
-	private var hero:VisibleStaticObject;
+	//private var heroOld:VisibleStaticObject;
 	private var playerToGameCommunication:CommunicationControl;
 	
 	private var indicators:Indicators;
-		
+	private var lastTime:Int = 0;
+	private var animated:AnimatedSprite;
+
+	@:isVar public var hero(get, null):Player;
+	
 	public function new() {
 		super();
 		trace("Main | started");
 		//typeControl = new CollectableTypeControl();
 		init();
-		
-		
 		
 		//var testArray:Array<Bool> = new Array<Bool>[true, false, false, true];
 		
@@ -46,13 +58,14 @@ class Main extends Sprite {
 		playerToGameCommunication = new CommunicationControl(); 
 		addChild(playerToGameCommunication);
 		playerToGameCommunication.addEventListener(MoveCommandEvent.CHANGED, onMoveChange);
+		playerToGameCommunication.addEventListener(CommunicationControl.KEY_UP, onKeyUp);
+		playerToGameCommunication.addEventListener(CommunicationControl.KEY_LEFT, onKeyLeft);
+		playerToGameCommunication.addEventListener(CommunicationControl.KEY_RIGHT, onKeyRight);
 		
-		hero = new VisibleStaticObject("img/player/hero.png");
+		//heroOld = new VisibleStaticObject("img/player/hero.png");
 		
 		var background:VisibleStaticObject = new VisibleStaticObject("img/background/level1/background-1.jpg");
 		addChild(background);
-		
-		
 		
 		indicators = new Indicators();
 		addChild(indicators);
@@ -60,17 +73,34 @@ class Main extends Sprite {
 		indicators.y = 100;//0 + indicators.height * 1.2;
 		//indicators.health.reset();
 		//indicators.health.update(2);
-		
-		
-		
+
 		typeControl = new CollectableTypeControl();
 		flowControl = new FlowControl();
 		this.addChild(flowControl);
 		
 		flowControl.addEventListener(FlowControl.ELEMENT_REQUEST_CONFIRMED, manufactureElement);
 		addEventListener(Event.ENTER_FRAME, onFrame);
-		
+
 		startGame();
+	}
+	
+	private function onKeyRight(e:Event):Void {
+		if (!hero.walking) {
+			hero.scaleX = 1;
+			hero.walk();
+		}
+	}
+	
+	private function onKeyLeft(e:Event):Void {
+		
+		if (!hero.walking) {
+			hero.scaleX = -1;
+			hero.walk();
+		}
+	}
+	
+	private function onKeyUp(e:Event):Void {
+		hero.stand();
 	}
 	
 	private function onMoveChange(ev:MoveCommandEvent):Void {
@@ -84,6 +114,7 @@ class Main extends Sprite {
 	}
 	
 	private function startGame() {
+		hero = new Player();
 		flowControl.addHero(hero);
 		manufactureElement();
 	}
@@ -98,5 +129,8 @@ class Main extends Sprite {
 	private function onFrame(e:Event):Void {
 		flowControl.update();
 	}
+	
+	
+	function get_hero():Player { return hero; }
 	
 }

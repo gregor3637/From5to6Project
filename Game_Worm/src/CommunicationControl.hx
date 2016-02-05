@@ -8,7 +8,12 @@ import openfl.events.KeyboardEvent;
  * ...
  * @author Mihail Mitov
  */
-class CommunicationControl extends Sprite{
+class CommunicationControl extends Sprite {
+	
+	static public inline var KEY_UP:String = "keyUp";
+	static public inline var KEY_LEFT:String = "keyLeft";
+	static public inline var KEY_RIGHT:String = "keyRight";
+	private var flowControl:FlowControl;
 
 	public function new() {
 		super();
@@ -20,21 +25,29 @@ class CommunicationControl extends Sprite{
 		
 		this.parent.stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 		this.parent.stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
-	}
-	
-	private function keyUp(e:KeyboardEvent):Void {
+		
 		
 	}
 	
+	private function keyUp(e:KeyboardEvent):Void {
+		dispatchEvent(new Event(KEY_UP));
+	}
+		
 	private function keyDown(ev:KeyboardEvent):Void {
 		trace("some key is pressed down");
 		//var keyPresssed:Int = ev.keyCode;
 		var move:Direction;
 		switch(ev.keyCode) {
-			case 37: move = Direction.LEFT; 
-			case 39: move = Direction.RIGHT;
-			//case 38: move = Direction.UP;
-			//case 40: move = Direction.DOWN;
+			case 37: {
+				dispatchEvent(new Event(KEY_LEFT));
+				move = Direction.LEFT; 
+			}
+			case 39: {
+				dispatchEvent(new Event(KEY_RIGHT));
+				move = Direction.RIGHT;
+			}
+			case 38: move = Direction.UP;
+			case 40: move = Direction.DOWN;
 			
 			default: move = Direction.MISSING;
 			trace("No move corresponds to button: " + String.fromCharCode(ev.keyCode) + " | ev.keyCode = " + ev.keyCode );
@@ -42,4 +55,5 @@ class CommunicationControl extends Sprite{
 		
 		dispatchEvent(new MoveCommandEvent(MoveCommandEvent.CHANGED, move));
 	}
+	
 }

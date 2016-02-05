@@ -61,7 +61,7 @@ class CollectableTypeControl {
 				//sequence[MathUtils.randomIntegerWithinRange(0, 100)] = Type.enumIndex(Effect.Bonus);
 			//}
 			//TODO: logic for "bonus frequency is above percentage"
-			trace(effectSequence);
+			//trace(effectSequence);
 		}
 		
 		
