@@ -165,8 +165,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/player/set.png", AssetType.IMAGE);
 		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
 		type.set ("img/player/wormanim.json", AssetType.TEXT);
-		className.set ("img/player/WormAnim.png", __ASSET__img_player_wormanim_png);
-		type.set ("img/player/WormAnim.png", AssetType.IMAGE);
+		className.set ("img/player/wormanim.png", __ASSET__img_player_wormanim_png);
+		type.set ("img/player/wormanim.png", AssetType.IMAGE);
 		className.set ("img/ProgressBar/Background.png", __ASSET__img_progressbar_background_png);
 		type.set ("img/ProgressBar/Background.png", AssetType.IMAGE);
 		className.set ("img/ProgressBar/HealthProgress.png", __ASSET__img_progressbar_healthprogress_png);
@@ -318,7 +318,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
-		id = "img/player/WormAnim.png";
+		id = "img/player/wormanim.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -462,8 +462,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
 		type.set ("img/player/wormanim.json", AssetType.TEXT);
 		
-		className.set ("img/player/WormAnim.png", __ASSET__img_player_wormanim_png);
-		type.set ("img/player/WormAnim.png", AssetType.IMAGE);
+		className.set ("img/player/wormanim.png", __ASSET__img_player_wormanim_png);
+		type.set ("img/player/wormanim.png", AssetType.IMAGE);
 		
 		className.set ("img/ProgressBar/Background.png", __ASSET__img_progressbar_background_png);
 		type.set ("img/ProgressBar/Background.png", AssetType.IMAGE);
@@ -1075,7 +1075,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 			var bytes = ByteArray.readFile ("assets/manifest");
 			#elseif (mac && java)
 			var bytes = ByteArray.readFile ("../Resources/manifest");
-			#elseif ios
+			#elseif (ios || tvos)
 			var bytes = ByteArray.readFile ("assets/manifest");
 			#else
 			var bytes = ByteArray.readFile ("manifest");
@@ -1097,7 +1097,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 							
 							if (!className.exists (asset.id)) {
 								
-								#if ios
+								#if (ios || tvos)
 								path.set (asset.id, "assets/" + asset.path);
 								#else
 								path.set (asset.id, asset.path);
@@ -1324,7 +1324,7 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/player/hero.png") #if display private #end class __ASSET__img_player_hero_png extends lime.graphics.Image {}
 @:image("assets/img/player/set.png") #if display private #end class __ASSET__img_player_set_png extends lime.graphics.Image {}
 @:file("assets/img/player/wormanim.json") #if display private #end class __ASSET__img_player_wormanim_json extends lime.utils.ByteArray {}
-@:image("assets/img/player/WormAnim.png") #if display private #end class __ASSET__img_player_wormanim_png extends lime.graphics.Image {}
+@:image("assets/img/player/wormanim.png") #if display private #end class __ASSET__img_player_wormanim_png extends lime.graphics.Image {}
 @:image("assets/img/ProgressBar/Background.png") #if display private #end class __ASSET__img_progressbar_background_png extends lime.graphics.Image {}
 @:image("assets/img/ProgressBar/HealthProgress.png") #if display private #end class __ASSET__img_progressbar_healthprogress_png extends lime.graphics.Image {}
 @:image("assets/img/set.png") #if display private #end class __ASSET__img_set_png extends lime.graphics.Image {}

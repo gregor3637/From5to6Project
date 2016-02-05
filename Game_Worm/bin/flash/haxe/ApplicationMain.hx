@@ -166,7 +166,7 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("img/player/WormAnim.png");
+		urls.push ("img/player/wormanim.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -250,7 +250,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "713",
+			build: "716",
 			company: "Mihail Mitov",
 			file: "GameWorm",
 			fps: 60,
@@ -335,7 +335,15 @@ class ApplicationMain {
 			
 		}
 		
+		#if !flash
+		if (openfl.Lib.current.stage.window.fullscreen) {
+			
+			openfl.Lib.current.stage.dispatchEvent (new openfl.events.FullScreenEvent (openfl.events.FullScreenEvent.FULL_SCREEN, false, false, true, true));
+			
+		}
+		
 		openfl.Lib.current.stage.dispatchEvent (new openfl.events.Event (openfl.events.Event.RESIZE, false, false));
+		#end
 		
 	}
 	
