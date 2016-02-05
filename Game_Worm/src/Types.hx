@@ -9,21 +9,21 @@ import Effect;
 class Types {
 	
 	
-	//static public var APPLE    = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Blue.png" };
-	static public var APPLE    = { isHealthy: Effect.Positive, pathToImage: "img/objects/apple.png" };
-	static public var GRAPES   = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Purple.png" };
-	static public var KIWI     = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/collectable_Green.png" };
+	//static public var APPLE    = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/collectable_Blue.png" };
+	static public var APPLE    = { healthEffect: Effect.Positive, pathToImage: "img/objects/apple.png" };
+	static public var GRAPES   = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/collectable_Purple.png" };
+	static public var KIWI     = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/collectable_Green.png" };
 
-	static public var SANDWICH = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/collectable_Yellow.png" };
-	static public var ALCOHOL  = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/collectable_Grey.png" };
-	static public var MEAT     = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var SANDWICH = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/collectable_Yellow.png" };
+	static public var ALCOHOL  = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/collectable_Grey.png" };
+	static public var MEAT     = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/collectable_Red.png" };
 
-	static public var STAR     = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
-	static public var MAGNET   = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
-	static public var BOMB     = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var STAR     = { healthEffect: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var MAGNET   = { healthEffect: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var BOMB     = { healthEffect: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
 
-	static public var SNOW     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/collectable_Red.png" };
-	static public var RAIN     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var SNOW     = { healthEffect: Effect.Neutral,  pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var RAIN     = { healthEffect: Effect.Neutral,  pathToImage: "img/Collectables/collectable_Red.png" };
 	
 	static public var GOOD_COLLECTABLES = [APPLE, GRAPES, KIWI];
 	static public var BAD_COLLECTABLES  = [SANDWICH, ALCOHOL, MEAT];

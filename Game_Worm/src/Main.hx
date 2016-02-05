@@ -1,5 +1,6 @@
 package;
 
+import CommunicationControl;
 import haxe.EnumTools.EnumValueTools;
 import openfl.Assets;
 import openfl.display.Graphics;
@@ -14,89 +15,61 @@ import openfl.Lib;
  */
 
 class Main extends Sprite {
+	private var background:VisibleStaticObject;
 	
-	private var fallingObject:Collectable;
-	
-	private var typeControl:CollectableTypeControl;
+	private var playerToGameCommunication:CommunicationControl;
+	//private var typeControl:CollectableTypeControl;
 	private var flowControl:FlowControl;
+	private var actionControl:ActionControl;//eventControl - collisionDetection, falling down, moving the worm
 	
 	private var hero:VisibleStaticObject;
-	private var playerToGameCommunication:CommunicationControl;
 	
 	private var indicators:Indicators;
 		
 	public function new() {
 		super();
 		trace("Main | started");
-		//typeControl = new CollectableTypeControl();
 		init();
-		
-		
-		
-		//var testArray:Array<Bool> = new Array<Bool>[true, false, false, true];
-		
-		var areTrue:Int = Validation.conditionFrequency(true, [true, false, true, false, true]);
-		
-		trace(" areTrue = " + areTrue);
-		
+		//var areTrue:Int = Validation.conditionFrequency(true, [true, false, true, false, true]);
 	}
 
 	
 	private function init() {
-		playerToGameCommunication = new CommunicationControl(); 
-		addChild(playerToGameCommunication);
-		playerToGameCommunication.addEventListener(MoveCommandEvent.CHANGED, onMoveChange);
+		background = new VisibleStaticObject("img/background/level1/Background_960x480.png");
+		this.addChild(background);
 		
 		hero = new VisibleStaticObject("img/player/hero.png");
 		
-		var background:VisibleStaticObject = new VisibleStaticObject("img/background/level1/Background_960x480.png");
-		addChild(background);
+		flowControl = new FlowControl();
+		actionControl = new ActionControl();
+		this.addChild(actionControl);
 		
-		
+		playerToGameCommunication = new CommunicationControl(); 
+		this.addChild(playerToGameCommunication);
 		
 		indicators = new Indicators();
-		addChild(indicators);
-		indicators.x = stage.stageWidth - indicators.width * 1.2;
-		indicators.y = 100;//0 + indicators.height * 1.2;
-		//indicators.health.reset();
-		//indicators.health.update(2);
+		this.addChild(indicators);
+		indicators.x = 300;
+		indicators.y = 100;
 		
-		
-		
-		typeControl = new CollectableTypeControl();
-		flowControl = new FlowControl();
-		this.addChild(flowControl);
-		
-		flowControl.addEventListener(FlowControl.ELEMENT_REQUEST_CONFIRMED, manufactureElement);
-		addEventListener(Event.ENTER_FRAME, onFrame);
+		playerToGameCommunication.addEventListener(MoveCommandEvent.CHANGED, indicators.updateMana);
+		playerToGameCommunication.addEventListener(MoveCommandEvent.CHANGED, actionControl.moveHero);
+		flowControl.addEventListener(ElementLifeCycleEvent.BORN, actionControl.createElement);
+		actionControl.addEventListener(ElementLifeCycleEvent.DIED, flowControl.elementDestroyed);
+		addEventListener(Event.ENTER_FRAME, onTick);
 		
 		startGame();
 	}
 	
-	private function onMoveChange(ev:MoveCommandEvent):Void {
-		//indicators.health.canOverlap = true;
-		//indicators.health.updateWithValue(140);
-		//indicators.health.updateWithPercentOfCurrent(300);//24
-		//indicators.health.updateWithPercentOfTotal(300);
-		indicators.mana.canOverlap = true;
-		indicators.mana.updateWithValue(140);//24
-		flowControl.moveHero(ev.movementType);
+	private function onTick(ev:Event):Void {
+		flowControl.update(ev);
+		actionControl.update(ev);
 	}
 	
 	private function startGame() {
-		flowControl.addHero(hero);
-		manufactureElement();
+		flowControl.requestNewCollectable();
 	}
 	
-	private function manufactureElement(ev:Event = null):Void {
-		var info:CollectableInfoVO = typeControl.getType();
-		var newElement:Collectable = Collectable.create(info);
-		flowControl.addNewElements(newElement);
-		//flowControl.addNewElements(factory.createCollectable(typeControl.mostAppropriateChoice()));
-	}
 	
-	private function onFrame(e:Event):Void {
-		flowControl.update();
-	}
 	
 }

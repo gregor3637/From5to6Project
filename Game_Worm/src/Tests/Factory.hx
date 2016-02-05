@@ -10,7 +10,7 @@ class Factory{
 		
 	}
 	
-	public function createCollectable(information:CollectableInfoVO):Collectable {
+	public function createCollectable(information:CollectableDNAVO):Collectable {
 		var collectable:Collectable = new Collectable(information.pathToSource);
 		collectable.isHealthy = information.isHealthy;
 		

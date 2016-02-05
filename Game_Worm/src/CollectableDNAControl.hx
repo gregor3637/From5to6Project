@@ -1,20 +1,37 @@
 package;
+import haxe.io.Error;
 import MathUtils;
 
 /**
  * ...
  * @author Mihail Mitov
  */
-class CollectableTypeControl {
+class CollectableDNAControl {
 	public static inline var TOTAL_ELEMENTS:Int = 100;
 	public static inline var BONUS_FREQUENCY:Int = 1;
 	public static inline var NEUTRAL_FREQUENCY:Int = 15;
 	private var effectSequence(get, null):Array<Effect>;
 	private var currentIndex:Int = -1;
 	
+	private var healthyPopulation:Int = 0;
+	private var unhealthyPopulation:Int = 0;
+	private var neutralPopulation:Int = 0;
+	private var bonusPopulation:Int = 0;
 	
 	public function new() {
 		effectSequence;
+	}
+	
+	public function reducePopulationType(dnaType:CollectableDNAVO):Void {
+		
+		switch(dnaType.healthEffect) {
+			case Effect.Positive: --healthyPopulation;
+			case Effect.Negative: --unhealthyPopulation;
+			case Effect.Neutral:  --neutralPopulation;
+			case Effect.Bonus:    --bonusPopulation;
+			
+			default: throw("CollectableDNAControl | reducePopulationType | Effect isnt listed !");
+		}
 	}
 	
 	public function getType() { 
@@ -26,7 +43,7 @@ class CollectableTypeControl {
 		var objectsCollection = Types.ALL_COLLECTABLES[Type.enumIndex(effect)];
 		var objectIndex:Int = MathUtils.randomIntegerWithinRange(0, objectsCollection.length - 1);
 		var object = objectsCollection[objectIndex];
-		var cvo:CollectableInfoVO = new CollectableInfoVO(object.isHealthy, object.pathToImage);
+		var cvo:CollectableDNAVO = new CollectableDNAVO(object.healthEffect, object.pathToImage);
 		
 		return cvo;
 	}
