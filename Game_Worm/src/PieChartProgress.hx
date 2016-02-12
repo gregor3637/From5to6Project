@@ -15,8 +15,7 @@ import openfl.geom.Point;
  * @author Mihail Mitov
  */
 class PieChartProgress extends ProgressBar {
-	private var willTrace:Bool = true;
-	static public inline var TIME_PER_ONE_CIRCUIT:Float = 2;
+	static public inline var TIME_PER_ONE_CIRCUIT:Float = 2;//in seconds
 	@:isVar public var curPieStep(get, set):Float;
 	
 	private	var pieMaxStep:Int = 60;
@@ -25,32 +24,25 @@ class PieChartProgress extends ProgressBar {
 	
 	public function new(startValue:Float = 0, endValue:Float = 1, isOverlooping:Bool = false) {
 		super(startValue, endValue, isOverlooping);
-		
-		this.addEventListener(Event.ADDED_TO_STAGE, init);
-		this.visualize = visualizeProgress;
-		
 		curPieStep = 0;
-		if (startValue != 0) {
-			super.visualize(0, startValue, 0, false);
-		}
 	}
 	
-	private function init(ev:Event):Void {
-		removeEventListener(Event.ADDED_TO_STAGE, init);
+	override private function init(ev:Event):Void {
+		super.init(ev);
 		
 		addChild(pieSprite);
 		pieSprite.x = 100;
 		pieSprite.y = 100;
+		//set wheel to our 0 degrees
 		pieSprite.rotation = -90;
 	}
 	
-	private function visualizeProgress(startFromPercentage:Float, stopAtPercentage:Float, overloops:Int = 0, isAnimated:Bool = true):Void {
-		var percentageIncrease:Float = (overloops * 100) + stopAtPercentage;
-		var startAtPercentage:Float = (curPieStep / pieMaxStep) * 100;
+	override private function visualizeProgress(startFromPercentage:Float, stopAtPercentage:Float, completeCycles:Int = 0, isAnimated:Bool = true):Void {
+		var percentageIncrease:Float = (completeCycles * 100) + stopAtPercentage;
 		var endPieStep:Float = (percentageIncrease / 100 ) * pieMaxStep;
 		
 		if (isAnimated) {
-			var animationTime:Float = super.timeBasedOnPercentageIncrease(startFromPercentage, stopAtPercentage, overloops, TIME_PER_ONE_CIRCUIT);
+			var animationTime:Float = super.timeBasedOnPercentageIncrease(startFromPercentage, stopAtPercentage, completeCycles, TIME_PER_ONE_CIRCUIT);
 			Actuate.update(drawPie, animationTime, [curPieStep], [endPieStep])
 					.ease(Quad.easeInOut);
 					//.ease(Linear.easeNone);
@@ -66,7 +58,6 @@ class PieChartProgress extends ProgressBar {
 		draw(pieSprite.graphics, 100, 0, pieAngleStep * curPieStep);
 	}
 	
-	//private function fillCircle(graphics:Graphics, color:UInt = 0x000000, alpha:Float = 1, radius:Float = 10, startAngle:Float = 0, endAngle:Float = 360, angleStep:Float = 1):Void {
 	private function draw(graphics:Graphics, radius:Float = 10, startAngle:Float = 0, endAngle:Float = 360, angleStep:Float = 1):Void {
 		var tempRadians:Float;
 		var startRadians:Float = MathUtils.angleToRadians(startAngle);

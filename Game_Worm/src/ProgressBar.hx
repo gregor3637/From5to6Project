@@ -14,43 +14,42 @@ import openfl.events.Event;
  * @author Mihail Mitov
  */
 class ProgressBar extends Sprite {
-	private var canTrace:Bool = true;
 	private var LEVEL_PROGRESSION:Float = 2;
 	
 	@:isVar public var maxValue(get, null):Float;
-	@:isVar public var currentValueOfMaxValue(get, null):Float;
+	@:isVar public var reachedValue(get, null):Float;
 	@:isVar public var canOverlap(get, set):Bool;
-	@:isVar public var startOver(get, set):Int = -1;
+	@:isVar public var completeCycles(get, set):Int;
 	@:isVar public var percentageComplete(get, set):Float;// how to set this to 'protected' access, so only objects that extend the class have it ?!?
-	@:isVar public var visualize(get, set):Function;
 	
-	public function new(startValue:Float = 0, endValue:Float = 1, canOverloop:Bool = false) {
+	public function new(startValue:Float = 0, progressEndValue:Float = 1, canOverloop:Bool = false) {
 		super();
-		this.currentValueOfMaxValue = startValue;
-		this.maxValue = endValue;
+		this.reachedValue = startValue;
+		this.maxValue = progressEndValue;
 		this.canOverlap = canOverloop;
+		
+		addEventListener(Event.ADDED_TO_STAGE, init);
+	}
+	
+	private function init(e:Event):Void {
+		removeEventListener(Event.ADDED_TO_STAGE, init);
+		if (reachedValue != 0) {
+			updateWithValue(0);
+		}
 	}
 	
 	public function reset():Void {
-		currentValueOfMaxValue = 0;
+		reachedValue = 0;
 	}
 	public function updateWithValue(value:Float = 0):Void {
-		if(canTrace) trace("ProgressBar | updateWithValue | currentValueOfMaxValue (1)              = " + currentValueOfMaxValue);
-		if(canTrace) trace("ProgressBar | updateWithValue | value adding                            = " + value);
 		recalculateCurrentValue(value);
 	}
-	public function updateWithPercentOfCurrent(value:Float):Void {
-		if(canTrace) trace("ProgressBar | updateWithPercentOfCurrent | currentValueOfMaxValue (1)   = " + currentValueOfMaxValue);
-		if(canTrace) trace("ProgressBar | updateWithPercentOfCurrent | %     adding                 = " + value);
-		value = (value / 100) * currentValueOfMaxValue;
-		if(canTrace) trace("ProgressBar | updateWithPercentOfCurrent | value adding                 = " + value);
+	public function updateWithPercentOfReached(value:Float):Void {
+		value = (value / 100) * reachedValue;
 		recalculateCurrentValue(value);
 	}
-	public function updateWithPercentOfTotal(value:Float):Void {
-		if(canTrace) trace("ProgressBar | updateWithPercentOfTotal   | currentValueOfMaxValue (1)   = " + currentValueOfMaxValue);
-		if(canTrace) trace("ProgressBar | updateWithPercentOfTotal   |  %     adding                = " + value);
+	public function updateWithPercentOfMax(value:Float):Void {
 		value = (value / 100) * maxValue;
-		if(canTrace) trace("ProgressBar | updateWithPercentOfTotal   |  value adding                = " + value);
 		recalculateCurrentValue(value);
 	}
 	
@@ -60,45 +59,37 @@ class ProgressBar extends Sprite {
 	private function recalculateCurrentValue(valueToAdd:Float):Void {
 		var percent:Float = 0;
 		var trimmedPercent:Float = 0;
-		var startPercentage:Float = (currentValueOfMaxValue / maxValue) * 100;
-		startOver = 0;
-		
-		if(canTrace) trace("ProgressBar | recalculateCurrentValue | maxValue     (1)             = " + maxValue);
+		var startPercentage:Float = (reachedValue / maxValue) * 100;
+		completeCycles = 0;
 		
 		
 		if (!canOverlap) {
-			currentValueOfMaxValue += valueToAdd;
-			currentValueOfMaxValue = MathUtils.roundToDecimal(currentValueOfMaxValue, 2);
-			currentValueOfMaxValue = (currentValueOfMaxValue > maxValue)? maxValue : currentValueOfMaxValue;	
-			
-			percent = currentValueOfMaxValue / maxValue;
-			percentageComplete = MathUtils.roundToDecimal(percent, 2);
-			percentageComplete = (percentageComplete > 1)? 1 : percentageComplete;
+			reachedValue += valueToAdd;
+			reachedValue = MathUtils.roundToDecimal(reachedValue, 2);
+			reachedValue = (reachedValue > maxValue)? maxValue : reachedValue;	
 		}
 		else {
 			do {
-				if (currentValueOfMaxValue + valueToAdd >= maxValue) {
-					valueToAdd = valueToAdd - (maxValue - currentValueOfMaxValue);
-					currentValueOfMaxValue = 0;
+				if (valueToAdd + reachedValue >= maxValue) {
+					valueToAdd = (valueToAdd + reachedValue) - maxValue;
+					reachedValue = 0;
 					maxValue = maxValue * LEVEL_PROGRESSION;
-					++startOver;
+					++completeCycles;
 				}
 				else {
-					currentValueOfMaxValue = currentValueOfMaxValue + valueToAdd;
+					reachedValue = reachedValue + valueToAdd;
 					valueToAdd = 0;
 				}
 			} while (valueToAdd > 0);
-			
-			percent = (currentValueOfMaxValue / maxValue) * 100;
-			percentageComplete = MathUtils.roundToDecimal(percent, 3);
-			
-			if(canTrace) trace("ProgressBar | recalculateCurrentValue | maxValue     (2)             = " + maxValue);
-			if(canTrace) trace("ProgressBar | recalculateCurrentValue | currentValueOfMaxValue (2)   = " + currentValueOfMaxValue);
-			if(canTrace) trace("ProgressBar | recalculateCurrentValue | startOver                    = " + startOver);
-			if(canTrace) trace("ProgressBar | recalculateCurrentValue | percentageComplete           = " + percentageComplete);
 		}
 		
-		visualize(startPercentage, percentageComplete, startOver);
+		percent = (reachedValue / maxValue) * 100;
+		percentageComplete = MathUtils.roundToDecimal(percent, 2);
+		
+		visualizeProgress(startPercentage, percentageComplete, completeCycles);
+	}
+	
+	private function visualizeProgress(startFromPercentage:Float, stopAtPercentage:Float, completeCycles:Int = 0, isAnimated:Bool = true):Void {
 	}
 	
 	public function timeBasedOnPercentageIncrease(start:Float, end:Float, loops:Int, timeForOneLoop:Float):Float {
@@ -133,18 +124,17 @@ class ProgressBar extends Sprite {
 		return totalTime;
 	}
 	
-	//------------------------------------------ setters gettrs ------------------------------------------
-	function get_visualize():Function { return visualize; }
-	function set_visualize(value:Function):Function { return visualize = value; }
 	
-	function get_startOver():Int { return startOver; }
-	function set_startOver(value:Int):Int { return startOver = value; }
+	//------------------------------------------ setters gettrs ------------------------------------------
+	
+	function get_completeCycles():Int { return completeCycles; }
+	function set_completeCycles(value:Int):Int { return completeCycles = value; }
 	
 	function get_maxValue():Float { return maxValue; }
 	//function set_maxValue(value:Float):Float { return maxValue = value; }
 	
-	function get_currentValueOfMaxValue():Float { return currentValueOfMaxValue; }
-	//function set_currentValueOfMaxValue(value:Float):Float { return currentValueOfMaxValue = value; }
+	function get_reachedValue():Float { return reachedValue; }
+	//function set_reachedValue(value:Float):Float { return reachedValue = value; }
 	
 	function get_canOverlap():Bool { return canOverlap; }
 	function set_canOverlap(value:Bool):Bool { return canOverlap = value; }
