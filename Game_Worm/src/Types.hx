@@ -8,24 +8,24 @@ import Effect;
  */
 class Types {
 	
-	static public var AVOCADO     = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/avocado.png" };
-	static public var LETTUCE    = { isHealthy: Effect.Positive, pathToImage: "img/objects/lettuce.png" };
-	static public var APPLE   = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/apple.png" };
-	static public var WATERMELON     = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/watermelon.png" };
-	static public var CARROT     = { isHealthy: Effect.Positive, pathToImage: "img/Collectables/carot.png" };
+	static public var AVOCADO     = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/avocado.png" };
+	static public var LETTUCE    = { healthEffect: Effect.Positive, pathToImage: "img/objects/lettuce.png" };
+	static public var APPLE   = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/apple.png" };
+	static public var WATERMELON     = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/watermelon.png" };
+	static public var CARROT     = { healthEffect: Effect.Positive, pathToImage: "img/Collectables/carot.png" };
 
-	static public var SAUSAGE = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/sausage.png" };
-	static public var BURGER  = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/burger.png" };
-	static public var PIZZA     = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/pizza.png" };
-	static public var FRESHFRIES     = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/frenchFries.png" };
-	static public var DONUT     = { isHealthy: Effect.Negative, pathToImage: "img/Collectables/donut.png" };
+	static public var SAUSAGE = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/sausage.png" };
+	static public var BURGER  = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/burger.png" };
+	static public var PIZZA     = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/pizza.png" };
+	static public var FRESHFRIES     = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/frenchFries.png" };
+	static public var DONUT     = { healthEffect: Effect.Negative, pathToImage: "img/Collectables/donut.png" };
 
-	static public var GOODBASKET     = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/goodBasket.png" };
-	static public var BADBASKET     = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/badBasket.png" };
-	//static public var MAGNET   = { isHealthy: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
+	static public var GOODBASKET     = { healthEffect: Effect.Bonus,    pathToImage: "img/Collectables/goodBasket.png" };
+	static public var BADBASKET     = { healthEffect: Effect.Bonus,    pathToImage: "img/Collectables/badBasket.png" };
+	//static public var MAGNET   = { healthEffect: Effect.Bonus,    pathToImage: "img/Collectables/collectable_Red.png" };
 
-	static public var SNOW     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/goodBasket.png" };
-	static public var RAIN     = { isHealthy: Effect.Neutral,  pathToImage: "img/Collectables/goodBasket.png" };
+	static public var SNOW     = { healthEffect: Effect.Neutral,  pathToImage: "img/Collectables/goodBasket.png" };
+	static public var RAIN     = { healthEffect: Effect.Neutral,  pathToImage: "img/Collectables/goodBasket.png" };
 	
 	static public var GOOD_COLLECTABLES = [AVOCADO, LETTUCE, APPLE, WATERMELON, CARROT];
 	static public var BAD_COLLECTABLES  = [SAUSAGE, BURGER, PIZZA, FRESHFRIES, DONUT];
