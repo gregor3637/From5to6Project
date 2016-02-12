@@ -8,13 +8,13 @@ import Effect;
  */
 class Collectable extends VisibleStaticObject{
 	static public inline var DESTROYED:String = "destroyed";
-	@:isVar public var isHealthy(get, set):Effect;
+	@:isVar public var healthEffect(get, set):Effect;
 
 	
 	public function new(path:String) {
 		super(path);
 		
-		//isHealthy = categorizeObjectEffect(type);
+		//healthEffect = categorizeObjectEffect(type);
 		addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 	}
 	
@@ -23,18 +23,18 @@ class Collectable extends VisibleStaticObject{
 		this.dispatchEvent(new Event(Collectable.DESTROYED, true));
 	}
 	
-	function get_isHealthy():Effect {
-		return isHealthy;
+	function get_healthEffect():Effect {
+		return healthEffect;
 	}
 	
-	function set_isHealthy(value:Effect):Effect {
-		return isHealthy = value;
+	function set_healthEffect(value:Effect):Effect {
+		return healthEffect = value;
 	}
 	
 	
 	public static override function create(info:CollectableInfoVO):Collectable {
 		var obj:Collectable = new Collectable(info.pathToSource);
-		obj.isHealthy = info.isHealthy;
+		obj.healthEffect = info.healthEffect;
 		
 		return obj;
 	}

@@ -26,7 +26,7 @@ class CollectableTypeControl {
 		var objectsCollection = Types.ALL_COLLECTABLES[Type.enumIndex(effect)];
 		var objectIndex:Int = MathUtils.randomIntegerWithinRange(0, objectsCollection.length - 1);
 		var object = objectsCollection[objectIndex];
-		var cvo:CollectableInfoVO = new CollectableInfoVO(object.isHealthy, object.pathToImage);
+		var cvo:CollectableInfoVO = new CollectableInfoVO(object.healthEffect, object.pathToImage);
 		
 		return cvo;
 	}

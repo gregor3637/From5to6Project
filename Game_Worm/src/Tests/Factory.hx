@@ -12,7 +12,7 @@ class Factory{
 	
 	public function createCollectable(information:CollectableInfoVO):Collectable {
 		var collectable:Collectable = new Collectable(information.pathToSource);
-		collectable.isHealthy = information.isHealthy;
+		collectable.healthEffect = information.healthEffect;
 		
 		return collectable;
 	}
