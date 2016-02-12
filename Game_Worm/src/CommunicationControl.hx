@@ -30,11 +30,12 @@ class CommunicationControl extends Sprite {
 	}
 	
 	private function keyUp(e:KeyboardEvent):Void {
-		dispatchEvent(new Event(KEY_UP));
+		//dispatchEvent(new Event(KEY_UP));
+		dispatchEvent(new MoveCommandEvent(MoveCommandEvent.CHANGED, Direction.STAND));
 	}
 		
 	private function keyDown(ev:KeyboardEvent):Void {
-		trace("some key is pressed down");
+		//trace("some key is pressed down");
 		//var keyPresssed:Int = ev.keyCode;
 		var move:Direction;
 		switch(ev.keyCode) {

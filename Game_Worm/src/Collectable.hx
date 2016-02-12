@@ -1,6 +1,5 @@
 package;
 import openfl.events.Event;
-import Effect;
 
 /**
  * ...
@@ -8,33 +7,33 @@ import Effect;
  */
 class Collectable extends VisibleStaticObject{
 	static public inline var DESTROYED:String = "destroyed";
-	@:isVar public var healthEffect(get, set):Effect;
+	@:isVar public var dna(get, set):CollectableDNAVO;
 
 	
 	public function new(path:String) {
 		super(path);
 		
-		//healthEffect = categorizeObjectEffect(type);
+		//dna = categorizeObjectEffect(type);
 		addEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 	}
 	
-	private function onRemovedFromStage(e:Event):Void {
+	private function onRemovedFromStage(ev:Event):Void {
 		removeEventListener(Event.REMOVED_FROM_STAGE, onRemovedFromStage);
 		this.dispatchEvent(new Event(Collectable.DESTROYED, true));
 	}
 	
-	function get_healthEffect():Effect {
-		return healthEffect;
+	function get_dna():CollectableDNAVO {
+		return dna;
 	}
 	
-	function set_healthEffect(value:Effect):Effect {
-		return healthEffect = value;
+	function set_dna(value:CollectableDNAVO):CollectableDNAVO {
+		return dna = value;
 	}
 	
 	
-	public static override function create(info:CollectableInfoVO):Collectable {
+	public static override function create(info:CollectableDNAVO):Collectable {
 		var obj:Collectable = new Collectable(info.pathToSource);
-		obj.healthEffect = info.healthEffect;
+		obj.dna = info;
 		
 		return obj;
 	}
