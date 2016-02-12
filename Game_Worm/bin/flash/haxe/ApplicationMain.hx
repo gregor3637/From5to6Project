@@ -162,11 +162,11 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
-		urls.push ("img/player/wormanim.json");
+		urls.push ("img/player/WormAnim.json");
 		types.push (lime.Assets.AssetType.TEXT);
 		
 		
-		urls.push ("img/player/wormanim.png");
+		urls.push ("img/player/WormAnim.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
@@ -250,7 +250,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "716",
+			build: "719",
 			company: "Mihail Mitov",
 			file: "GameWorm",
 			fps: 60,

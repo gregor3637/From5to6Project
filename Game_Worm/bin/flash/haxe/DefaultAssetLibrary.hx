@@ -163,10 +163,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/player/hero.png", AssetType.IMAGE);
 		className.set ("img/player/set.png", __ASSET__img_player_set_png);
 		type.set ("img/player/set.png", AssetType.IMAGE);
-		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
-		type.set ("img/player/wormanim.json", AssetType.TEXT);
-		className.set ("img/player/wormanim.png", __ASSET__img_player_wormanim_png);
-		type.set ("img/player/wormanim.png", AssetType.IMAGE);
+		className.set ("img/player/WormAnim.json", __ASSET__img_player_wormanim_json);
+		type.set ("img/player/WormAnim.json", AssetType.TEXT);
+		className.set ("img/player/WormAnim.png", __ASSET__img_player_wormanim_png);
+		type.set ("img/player/WormAnim.png", AssetType.IMAGE);
 		className.set ("img/ProgressBar/Background.png", __ASSET__img_progressbar_background_png);
 		type.set ("img/ProgressBar/Background.png", AssetType.IMAGE);
 		className.set ("img/ProgressBar/HealthProgress.png", __ASSET__img_progressbar_healthprogress_png);
@@ -314,11 +314,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
-		id = "img/player/wormanim.json";
+		id = "img/player/WormAnim.json";
 		path.set (id, id);
 		
 		type.set (id, AssetType.TEXT);
-		id = "img/player/wormanim.png";
+		id = "img/player/WormAnim.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -459,11 +459,11 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/player/set.png", __ASSET__img_player_set_png);
 		type.set ("img/player/set.png", AssetType.IMAGE);
 		
-		className.set ("img/player/wormanim.json", __ASSET__img_player_wormanim_json);
-		type.set ("img/player/wormanim.json", AssetType.TEXT);
+		className.set ("img/player/WormAnim.json", __ASSET__img_player_wormanim_json);
+		type.set ("img/player/WormAnim.json", AssetType.TEXT);
 		
-		className.set ("img/player/wormanim.png", __ASSET__img_player_wormanim_png);
-		type.set ("img/player/wormanim.png", AssetType.IMAGE);
+		className.set ("img/player/WormAnim.png", __ASSET__img_player_wormanim_png);
+		type.set ("img/player/WormAnim.png", AssetType.IMAGE);
 		
 		className.set ("img/ProgressBar/Background.png", __ASSET__img_progressbar_background_png);
 		type.set ("img/ProgressBar/Background.png", AssetType.IMAGE);
@@ -1323,8 +1323,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 @:image("assets/img/player/firefox.png") #if display private #end class __ASSET__img_player_firefox_png extends lime.graphics.Image {}
 @:image("assets/img/player/hero.png") #if display private #end class __ASSET__img_player_hero_png extends lime.graphics.Image {}
 @:image("assets/img/player/set.png") #if display private #end class __ASSET__img_player_set_png extends lime.graphics.Image {}
-@:file("assets/img/player/wormanim.json") #if display private #end class __ASSET__img_player_wormanim_json extends lime.utils.ByteArray {}
-@:image("assets/img/player/wormanim.png") #if display private #end class __ASSET__img_player_wormanim_png extends lime.graphics.Image {}
+@:file("assets/img/player/WormAnim.json") #if display private #end class __ASSET__img_player_wormanim_json extends lime.utils.ByteArray {}
+@:image("assets/img/player/WormAnim.png") #if display private #end class __ASSET__img_player_wormanim_png extends lime.graphics.Image {}
 @:image("assets/img/ProgressBar/Background.png") #if display private #end class __ASSET__img_progressbar_background_png extends lime.graphics.Image {}
 @:image("assets/img/ProgressBar/HealthProgress.png") #if display private #end class __ASSET__img_progressbar_healthprogress_png extends lime.graphics.Image {}
 @:image("assets/img/set.png") #if display private #end class __ASSET__img_set_png extends lime.graphics.Image {}
