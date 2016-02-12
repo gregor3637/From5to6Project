@@ -68,15 +68,15 @@ class Main extends Sprite {
 		addChild(background);
 		
 		indicators = new Indicators();
-		addChild(indicators);
-		indicators.x = stage.stageWidth - indicators.width * 1.2;
-		indicators.y = 100;//0 + indicators.height * 1.2;
-		//indicators.health.reset();
-		//indicators.health.update(2);
+		this.addChild(indicators);
+		indicators.x = 300;
+		indicators.y = 100;
 
 		typeControl = new CollectableTypeControl();
 		flowControl = new FlowControl();
 		this.addChild(flowControl);
+		
+		playerToGameCommunication.addEventListener(MoveCommandEvent.CHANGED, indicators.updateMana);
 		
 		flowControl.addEventListener(FlowControl.ELEMENT_REQUEST_CONFIRMED, manufactureElement);
 		addEventListener(Event.ENTER_FRAME, onFrame);
@@ -108,8 +108,8 @@ class Main extends Sprite {
 		//indicators.health.updateWithValue(140);
 		//indicators.health.updateWithPercentOfCurrent(300);//24
 		//indicators.health.updateWithPercentOfTotal(300);
-		indicators.mana.canOverlap = true;
-		indicators.mana.updateWithValue(140);//24
+		//indicators.mana.canOverlap = true;
+		//indicators.mana.updateWithValue(140);//24
 		flowControl.moveHero(ev.movementType);
 	}
 	
