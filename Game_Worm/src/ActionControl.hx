@@ -54,18 +54,14 @@ class ActionControl extends Sprite {
 	}
 	
 	public function moveHero(ev:MoveCommandEvent):Void {
-		var diversion:Point =  new Point();
-		
 		switch(ev.movementType) {
-			case Direction.LEFT: diversion.x -= 5;
-			case Direction.RIGHT: diversion.x += 5;
-			case Direction.DOWN: diversion.y += 0;
-			case Direction.UP: diversion.y -= 0;
-			case Direction.STAND: stopHeroMoveAnimation();
+			case Direction.LEFT:   setNewHeroPosition(new Point(-5,0));
+			case Direction.RIGHT:  setNewHeroPosition(new Point(5, 0));
+			case Direction.DOWN:   setNewHeroPosition(new Point(0, 0));
+			case Direction.UP:     setNewHeroPosition(new Point(0, 0));
+			case Direction.STAND:  stopHeroMoveAnimation();
 			case Direction.MISSING: trace("You cant move with that key");
 		}
-		
-		setNewHeroPosition(diversion);
 	}
 	
 	private function stopHeroMoveAnimation():Void {

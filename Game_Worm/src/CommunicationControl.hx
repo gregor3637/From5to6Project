@@ -30,7 +30,7 @@ class CommunicationControl extends Sprite {
 	}
 	
 	private function keyUp(e:KeyboardEvent):Void {
-		//dispatchEvent(new Event(KEY_UP));
+		var traceVar:Int = 5;
 		dispatchEvent(new MoveCommandEvent(MoveCommandEvent.CHANGED, Direction.STAND));
 	}
 		
@@ -39,14 +39,8 @@ class CommunicationControl extends Sprite {
 		//var keyPresssed:Int = ev.keyCode;
 		var move:Direction;
 		switch(ev.keyCode) {
-			case 37: {
-				dispatchEvent(new Event(KEY_LEFT));
-				move = Direction.LEFT; 
-			}
-			case 39: {
-				dispatchEvent(new Event(KEY_RIGHT));
-				move = Direction.RIGHT;
-			}
+			case 37: move = Direction.LEFT; 
+			case 39: move = Direction.RIGHT;
 			case 38: move = Direction.UP;
 			case 40: move = Direction.DOWN;
 			
