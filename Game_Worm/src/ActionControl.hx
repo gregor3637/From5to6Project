@@ -54,38 +54,26 @@ class ActionControl extends Sprite {
 	}
 	
 	public function moveHero(ev:MoveCommandEvent):Void {
-		switch(ev.movementType) {
-			case Direction.LEFT:   setNewHeroPosition(new Point(-5,0));
-			case Direction.RIGHT:  setNewHeroPosition(new Point(5, 0));
-			case Direction.DOWN:   setNewHeroPosition(new Point(0, 0));
-			case Direction.UP:     setNewHeroPosition(new Point(0, 0));
-			case Direction.STAND:  stopHeroMoveAnimation();
-			case Direction.MISSING: trace("You cant move with that key");
-		}
-	}
-	
-	private function stopHeroMoveAnimation():Void {
-		hero.stand();
-	}
-	
-	private function setNewHeroPosition(diversion:Point) {
-		if (!hero.walking) {
-			hero.scaleX = (diversion.x > 0)?  1: -1;
+		if (ev.movementType != Direction.STAND && ev.movementType != Direction.MISSING) {
+			var deltaX:Int = ev.movementType == Direction.LEFT? -5 : 5;
 			hero.walk();
+			hero.scaleX = deltaX > 0? 1: -1;
+			
+			if ( (hero.x + deltaX - hero.width * 0.5 < 0) || (hero.x + deltaX + hero.width * 0.5 > playfieldWidth) ) {
+				return;
+			}
+			
+			hero.x += deltaX;
+			
+			trace("move");
+		} 
+		else if(ev.movementType == Direction.STAND) {
+			hero.stand();
+			trace("stand");
+			
 		}
 		
-		if (hero.x + diversion.x < 0) { //left edge
-			return;
-		}
-		if (hero.x + hero.width + diversion.x > playfieldWidth) { //right edge
-			return;
-		}
-		
-		
-		hero.x += diversion.x;
-		hero.y += diversion.y;
 	}
-	
 	
 	private function checkCollision():Void {
 		for (a in  0...fallingObjects.length) {

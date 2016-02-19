@@ -26,8 +26,7 @@ class Player extends Sprite
 	var lastTime:Int = 0;
 	public var walking:Bool = false;
 	
-	public function new() 
-	{
+	public function new() {
 		super();
 		var bitmap:BitmapData = openfl.Assets.getBitmapData("img/player/WormAnim.png");
 		
@@ -52,22 +51,27 @@ class Player extends Sprite
 		
 	}
 	
-	 public function onEnterFrame(e:Event):Void
-	 {
+	public function onEnterFrame(e:Event):Void{
 		var delta = Lib.getTimer()- lastTime;
 		animated.update(delta);
 		lastTime = Lib.getTimer();
-	 }
-	 
-	 public function walk():Void {
+	}
+
+	public function walk():Void {
+		if (walking) {
+			return;
+		}
 		animated.showBehavior("walk-normal");
 		walking = true;
-	 }
-	 
-	 public function stand():Void {
+	}
+
+	public function stand():Void {
+		if (!walking) {
+			return;
+		}
 		animated.showBehavior("stand-normal");
 		walking = false;
-	 }
+	}
 	
 	
 }
