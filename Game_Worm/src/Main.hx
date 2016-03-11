@@ -61,6 +61,7 @@ class Main extends Sprite {
 		playerToGameCommunication.addEventListener(MoveCommandEvent.CHANGED, actionControl.moveHero);
 		flowControl.addEventListener(ElementLifeCycleEvent.BORN, actionControl.createElement);
 		actionControl.addEventListener(ElementLifeCycleEvent.DIED, flowControl.elementDestroyed);
+		addEventListener(Event.ENTER_FRAME, onTick);
 		
 		startGame();
 	}

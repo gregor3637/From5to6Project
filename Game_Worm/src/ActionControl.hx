@@ -8,7 +8,7 @@ import openfl.geom.Point;
  * @author Mihail Mitov
  */
 class ActionControl extends Sprite {
-	private var FALL_DOWN_SPEED:Int = 3;
+	private var FALL_DOWN_SPEED:Float = 1;
 	
 	@:isVar public var hero(get, null):Player;
 	
@@ -72,7 +72,6 @@ class ActionControl extends Sprite {
 			trace("stand");
 			
 		}
-		
 	}
 	
 	private function checkCollision():Void {
